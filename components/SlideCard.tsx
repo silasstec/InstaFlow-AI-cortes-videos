@@ -11,6 +11,7 @@ interface SlideCardProps {
   onUpdateSlide?: (updatedSlide: Slide) => void;
   onRegenerateImage?: () => void;
   onRegenerateText?: () => void;
+  onDownloadSlide?: () => void;
   isGeneratingImage?: boolean;
 }
 
@@ -23,6 +24,7 @@ const SlideCard: React.FC<SlideCardProps> = ({
   onUpdateSlide,
   onRegenerateImage,
   onRegenerateText,
+  onDownloadSlide,
   isGeneratingImage 
 }) => {
   const { 
@@ -195,6 +197,13 @@ const SlideCard: React.FC<SlideCardProps> = ({
 
       {/* Tools Overlay (Hover) */}
       <div className="absolute top-4 right-4 z-50 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-all translate-x-4 group-hover:translate-x-0 print:hidden">
+        <button 
+          onClick={(e) => { e.stopPropagation(); onDownloadSlide?.(); }}
+          className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-white/30 transition-all shadow-lg"
+          title="Baixar Slide"
+        >
+          <i className="fa-solid fa-download text-[10px]"></i>
+        </button>
         <button 
           onClick={(e) => { e.stopPropagation(); onRegenerateText?.(); }}
           className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-white/30 transition-all shadow-lg"

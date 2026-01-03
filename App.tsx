@@ -4,6 +4,7 @@ import { AspectRatio, Slide, CarouselData, PALETTES, ColorPalette, DesignTone, B
 import { generateCarouselStructure, generateSlideImage, regenerateSingleSlideText } from './services/geminiService';
 import SlideCard from './components/SlideCard';
 import * as htmlToImage from 'html-to-image';
+import JSZip from 'jszip';
 
 const FONT_OPTIONS = [
   { name: 'Impactante (Impact)', value: "'Impact', sans-serif" },
@@ -146,25 +147,70 @@ const App: React.FC = () => {
     }
   };
 
+  const handleDownloadSingle = async (index: number) => {
+    if (!carousel) return;
+    const element = document.getElementById(`slide-render-${index}`);
+    if (element) {
+      try {
+        setStatusMessage(`Preparando slide ${index + 1}...`);
+        const dataUrl = await htmlToImage.toPng(element, { quality: 1, pixelRatio: 2 });
+        const link = document.createElement('a');
+        const slideFileName = `${carousel.theme.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase() || 'carousel'}_slide_${index + 1}.png`;
+        link.download = slideFileName;
+        link.href = dataUrl;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } catch (err) {
+        console.error(`Erro ao capturar o slide ${index + 1}:`, err);
+        setStatusMessage(`Erro ao baixar o slide ${index + 1}.`);
+      } finally {
+        setStatusMessage('');
+      }
+    }
+  };
+
   const handleDownloadAll = async () => {
     if (!carousel) return;
-    setStatusMessage('Capturando artes finais...');
+    setStatusMessage('Criando arquivo .zip...');
+
+    const zip = new JSZip();
+
     for (let i = 0; i < carousel.slides.length; i++) {
+      setStatusMessage(`Processando slide ${i + 1}/${carousel.slides.length}...`);
       const element = document.getElementById(`slide-render-${i}`);
       if (element) {
         try {
           const dataUrl = await htmlToImage.toPng(element, { quality: 1, pixelRatio: 2 });
-          const link = document.createElement('a');
-          link.download = `slide-${i + 1}.png`;
-          link.href = dataUrl;
-          link.click();
-          await new Promise(resolve => setTimeout(resolve, 500));
+          const base64Data = dataUrl.split(',')[1];
+          zip.file(`slide-${i + 1}.png`, base64Data, { base64: true });
         } catch (err) {
-          console.error('Error capturing slide:', err);
+          console.error(`Erro ao capturar o slide ${i + 1}:`, err);
+          setStatusMessage(`Erro ao processar o slide ${i + 1}.`);
         }
       }
     }
-    setStatusMessage('');
+
+    try {
+      setStatusMessage('Gerando o download...');
+      const content = await zip.generateAsync({ type: 'blob' });
+
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(content);
+      const zipFileName = `${carousel.theme.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase() || 'carousel'}.zip`;
+      link.download = zipFileName;
+      document.body.appendChild(link);
+      link.click();
+      
+      document.body.removeChild(link);
+      URL.revokeObjectURL(link.href);
+
+    } catch (err) {
+      console.error('Erro ao criar o arquivo .zip:', err);
+      setStatusMessage('Erro ao criar o arquivo .zip.');
+    } finally {
+      setStatusMessage('');
+    }
   };
 
   const handleRegenerateSlideImage = async (slideId: string) => {
@@ -473,6 +519,7 @@ const App: React.FC = () => {
                       onUpdateSlide={(updated) => updateSlideContent(slide.id, updated)}
                       onRegenerateImage={() => handleRegenerateSlideImage(slide.id)}
                       onRegenerateText={() => handleRegenerateSlideText(slide.id)}
+                      onDownloadSlide={() => handleDownloadSingle(idx)}
                       isGeneratingImage={currentGeneratingIndex === idx}
                     />
                 </div>
@@ -491,7 +538,7 @@ const App: React.FC = () => {
                 </div>
                 <div className="flex gap-4">
                     <button onClick={handleDownloadAll} className="px-10 py-4 rounded-2xl bg-pink-600 text-white font-black uppercase text-[11px] tracking-widest hover:brightness-110 active:scale-95 transition-all shadow-xl flex items-center gap-3">
-                        <i className="fa-solid fa-download"></i> Baixar Imagens
+                        <i className="fa-solid fa-download"></i> Baixar Imagens (.zip)
                     </button>
                     <button onClick={() => { setCarousel(null); setTheme(''); }} className="px-8 py-4 rounded-2xl bg-neutral-900 border border-white/10 text-white font-black uppercase text-[11px] tracking-widest hover:bg-neutral-800 active:scale-95 transition-all flex items-center gap-3">
                         <i className="fa-solid fa-plus"></i> Criar Novo
