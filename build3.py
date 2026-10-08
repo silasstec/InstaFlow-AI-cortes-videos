@@ -362,7 +362,7 @@ def tend(track, key, frac, nth=0):
 
 # ---------- 9. kinetic typography (ASS) ----------
 from PIL import ImageFont
-MAXW = 1000
+MAXW = 900                                   # ~83% of width: clear of the right-hand icon column
 def textw(txt, fontfile, size, spacing):
     try: f = ImageFont.truetype(fontfile, int(size)); w = f.getlength(txt)
     except Exception: w = 0.6 * size * len(txt)
@@ -397,7 +397,7 @@ Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour,
 Style: Key,{KEYFONT},230,&H00FFFFFF,&H00FFFFFF,&H00000000,&H78000000,0,0,0,0,100,100,-10,0,1,0,7,5,40,40,40,1
 Style: Huge,{KEYFONT},330,&H00FFFFFF,&H00FFFFFF,&H00000000,&H78000000,0,0,0,0,100,100,-14,0,1,0,9,5,40,40,40,1
 Style: Sub,{SUBFONT},120,&H00FFFFFF,&H00FFFFFF,&H00000000,&H78000000,-1,0,0,0,100,100,-2,0,1,0,5,5,40,40,40,1
-Style: Cap,Montserrat ExtraBold,88,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,0,0,1,4,5,2,70,70,500,1
+Style: Cap,Montserrat ExtraBold,88,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,0,0,1,4,5,2,90,90,720,1
 Style: Flash,{KEYFONT},20,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
 
 [Events]
@@ -427,7 +427,9 @@ def lightleak(t0, d=0.7, side=1, color="&H58C8FF&"):
     x0 = -300 if side > 0 else W + 300; x1 = W + 300 if side > 0 else -300
     for i, (r, a0, bl) in enumerate([(620, "&H60&", 120), (380, "&H40&", 80), (170, "&H20&", 40)]):
         ev.append(f"Dialogue: {4+i},{ts(t0)},{ts(t0+d)},Flash,,0,0,0,,{{\\an5\\move({x0},{700+i*60},{x1},{900-i*80})\\blur{bl}\\c{color}\\alpha&HFF&\\t(0,{int(d*300)},\\alpha{a0})\\t({int(d*300)},{int(d*1000)},\\alpha&HFF&)\\p1}}m 0 0 b {r} -{int(r*0.55)} {r} {int(r*0.55)} 0 0 m 0 0 b -{r} -{int(r*0.55)} -{r} {int(r*0.55)} 0 0{{\\p0}}")
+FLASH_T = []
 def flash(t0, strength="&H40&"):
+    FLASH_T.append(t0)
     ev.append(f"Dialogue: 3,{ts(t0)},{ts(t0+0.14)},Flash,,0,0,0,,{{\\an7\\pos(0,0)\\alpha{strength}\\t(0,140,\\alpha&HFF&)\\p1}}m 0 0 l {W} 0 {W} {H} 0 {H}{{\\p0}}")
 
 # B1 — hook
@@ -460,16 +462,16 @@ lockup(tw("vo6","quarenta",0.68), S("s20") + 0.1, "40 min", "Lisboa", 540, 700, 
 # B7 — CTA
 lockup(tw("vo7","dezesseis",0.0), tw("vo7","quer",0.42), "16,5 M€", None, 540, 560, keystyle="Huge", color=YEL); flash(tw("vo7","dezesseis",0.0))
 cap(tw("vo7","quer",0.42), tw("vo7","comenta",0.62), "quer o dossiê completo?")
-lockup(tw("vo7","comenta",0.62), S("s21") + 0.1, "comenta", "PALÁCIO", 540, 1120, subcolor=YEL)
+lockup(tw("vo7","comenta",0.62), S("s21") + 0.1, "comenta", "PALÁCIO", 540, 960, subcolor=YEL)
 # light leaks on the big beats (sun-flare feel of the reference)
 lightleak(S("s02") - 0.1, 0.8, +1); lightleak(S("s04") + 0.05, 0.9, -1); lightleak(S("s10") - 0.1, 0.8, +1)
 lightleak(S("s17") - 0.05, 0.7, -1); lightleak(S("s21") - 0.1, 0.9, +1)
 # end card
 e0 = S("s21") + 0.25
 _, hfs = fit("PALÁCIO", KEYFILE, 330, -14)
-ev.append(f"Dialogue: 2,{ts(e0)},{ts(TOTAL)},Huge,,0,0,0,,{{\\an5\\pos(540,820)\\fs{hfs}\\fad(120,250)\\fscx90\\fscy90\\t(0,900,\\fscx100\\fscy100)}}PALÁCIO")
-ev.append(f"Dialogue: 2,{ts(e0+0.12)},{ts(TOTAL)},Key,,0,0,0,,{{\\an5\\pos(540,1060)\\fs200\\fad(120,250)\\c{YEL}}}SINTRA")
-ev.append(f"Dialogue: 2,{ts(e0+0.25)},{ts(TOTAL)},Sub,,0,0,0,,{{\\an5\\pos(540,1260)\\fad(120,250)\\fs64}}B.S.C.  ·  comenta PALÁCIO")
+ev.append(f"Dialogue: 2,{ts(e0)},{ts(TOTAL)},Huge,,0,0,0,,{{\\an5\\pos(540,760)\\fs{hfs}\\fad(120,250)\\fscx90\\fscy90\\t(0,900,\\fscx100\\fscy100)}}PALÁCIO")
+ev.append(f"Dialogue: 2,{ts(e0+0.12)},{ts(TOTAL)},Key,,0,0,0,,{{\\an5\\pos(540,975)\\fs200\\fad(120,250)\\c{YEL}}}SINTRA")
+ev.append(f"Dialogue: 2,{ts(e0+0.25)},{ts(TOTAL)},Sub,,0,0,0,,{{\\an5\\pos(540,1140)\\fad(120,250)\\fs64}}B.S.C.  ·  comenta PALÁCIO")
 open(f"{OUT}/typo.ass", "w", encoding="utf-8").write(hdr + "\n".join(ev) + "\n")
 ca = []
 for i, sdef in enumerate(shots):
@@ -478,9 +480,9 @@ for i, sdef in enumerate(shots):
     if tr in ("whipL", "whipR"): ca.append(f"rgbashift=rh=-9:bh=9:enable='between(t,{t0-0.02:.3f},{t0+d+0.02:.3f})'")
     elif tr in ("whipU", "whipD"): ca.append(f"rgbashift=rv=-9:bv=9:enable='between(t,{t0-0.02:.3f},{t0+d+0.02:.3f})'")
     elif tr in ("spin", "zoom"): ca.append(f"rgbashift=rh=-6:rv=-6:bh=6:bv=6:enable='between(t,{t0-0.02:.3f},{t0+d+0.02:.3f})'")
-vf = ",".join(ca + [f"subtitles={OUT}/typo.ass:fontsdir={FONTDIR}"])
+vf = ",".join(["eq=contrast=1.03:saturation=1.05", "noise=alls=3:allf=t+u"] + ca + [f"subtitles={OUT}/typo.ass:fontsdir={FONTDIR}"])
 open("vf_typo.txt", "w").write(vf)
-sh(f"ffmpeg -v error -y -i {OUT}/video_clean.mp4 -filter_script:v vf_typo.txt -c:v libx264 -preset medium -crf 15 -r {FPS} {OUT}/video_typo.mp4")
+sh(f"ffmpeg -v error -y -i {OUT}/video_clean.mp4 -filter_script:v vf_typo.txt -c:v libx264 -preset medium -crf 17 -maxrate 20M -bufsize 40M -pix_fmt yuv420p -r {FPS} {OUT}/video_typo.mp4")
 
 # ---------- 10. audio: voice + whooshes + ducked music ----------
 tr = [(f"src/{k}_t.wav", BLK[k]) for k in ("vo1", "vo2", "vo3", "vo4", "vo5", "vo6", "vo7")]
@@ -493,6 +495,14 @@ wl = []
 for j, wt in enumerate(whoosh_t):
     f.append(f"anoisesrc=d=0.36:c=pink:r=48000:a=0.9:s={1000+j},aformat=channel_layouts=stereo,highpass=f=500,lowpass=f=7000,afade=t=in:d=0.07,afade=t=out:st=0.09:d=0.27,volume=0.42,adelay={int(wt*1000)}|{int(wt*1000)}[w{j}]")
     wl.append(f"[w{j}]")
+# impact hits under the flash frames (sub thump + click) and a riser into the hook payoff
+for j, ht in enumerate(FLASH_T):
+    f.append(f"sine=f=52:d=0.42:r=48000,aformat=channel_layouts=stereo,afade=t=out:st=0.03:d=0.39:curve=exp,volume=0.9,adelay={int(max(0,ht-0.01)*1000)}|{int(max(0,ht-0.01)*1000)}[h{j}]")
+    f.append(f"anoisesrc=d=0.08:c=white:r=48000:a=0.8:s={2000+j},aformat=channel_layouts=stereo,highpass=f=1500,afade=t=out:st=0.01:d=0.07,volume=0.35,adelay={int(max(0,ht-0.01)*1000)}|{int(max(0,ht-0.01)*1000)}[k{j}]")
+    wl += [f"[h{j}]", f"[k{j}]"]
+rt = max(0.0, tw("vo1","pal",0.78) - 0.75)
+f.append(f"anoisesrc=d=0.78:c=pink:r=48000:a=0.9:s=777,aformat=channel_layouts=stereo,highpass=f=300,lowpass=f=6000,afade=t=in:d=0.6:curve=exp,afade=t=out:st=0.7:d=0.08,volume=0.3,adelay={int(rt*1000)}|{int(rt*1000)}[rz]")
+wl.append("[rz]")
 f.append("".join(wl) + f"amix=inputs={len(wl)}:normalize=0:dropout_transition=0,apad=whole_dur={TOTAL+0.2}[sfx]")
 md = dur("src/music.mp3"); tempo = min(1.0, max(0.85, md / (TOTAL + 0.4)))
 f.append(f"[{n}:a]aformat=sample_rates=48000:channel_layouts=stereo,atempo={tempo:.4f},atrim=0:{TOTAL+0.5},afade=t=in:d=0.3,afade=t=out:st={TOTAL-0.7}:d=0.7,volume=0.36[mus]")
