@@ -236,12 +236,12 @@ def presenter_shot(name, src, length, cuts):
     parts = []; labels = []
     for i, (t0, t1, z, push) in enumerate(cuts):
         n = max(1, int(round((t1 - t0) * FPS)))
-        cz = f"crop=iw/{z:.4f}:ih/{z:.4f}:(iw-iw/{z:.4f})/2:(ih-ih/{z:.4f})*0.42,scale={VW}:{VH}" if z != 1.0 else "null"
+        cz = f"crop=iw/{z:.4f}:ih/{z:.4f}:(iw-iw/{z:.4f})/2:(ih-ih/{z:.4f})*0.25,scale={VW}:{VH}" if z != 1.0 else "null"
         # impact shake on every jump cut after the first: 6 frames of decaying jitter (crash-zoom feel)
         shake = (f",scale={VW+60}:{VH+106},crop={VW}:{VH}:x='30+lt(n,6)*22*(1-n/6)*sin(n*2.9)':y='53+lt(n,6)*18*(1-n/6)*cos(n*2.3)',setsar=1"
                  if i > 0 else "")
         parts.append(f"[0:v]trim=start={t0:.3f}:duration={t1-t0:.3f},setpts=PTS-STARTPTS,{NORM},{cz},"
-                     f"zoompan=z='1+{push:.4f}*on/{n}':d=1:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)*0.9':s={VW}x{VH}:fps={FPS},setsar=1{shake},"
+                     f"zoompan=z='1+{push:.4f}*on/{n}':d=1:x='iw/2-(iw/zoom/2)':y='(ih-ih/zoom)*0.3':s={VW}x{VH}:fps={FPS},setsar=1{shake},"
                      f"trim=duration={t1-t0:.3f},setpts=PTS-STARTPTS[p{i}]")
         labels.append(f"[p{i}]")
     fc = ";".join(parts) + ";" + "".join(labels) + f"concat=n={len(cuts)}:v=1:a=0,format=yuv420p,settb=AVTB[v]"
@@ -477,7 +477,7 @@ Style: Key,{KEYFONT},230,&H00FFFFFF,&H00FFFFFF,&H00000000,&H78000000,0,0,0,0,100
 Style: Huge,{KEYFONT},330,&H00FFFFFF,&H00FFFFFF,&H00000000,&H78000000,0,0,0,0,100,100,-14,0,1,0,9,5,40,40,40,1
 Style: Sub,{SUBFONT},120,&H00FFFFFF,&H00FFFFFF,&H00000000,&H78000000,-1,0,0,0,100,100,-2,0,1,0,5,5,40,40,40,1
 Style: Cap,Montserrat ExtraBold,88,&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,0,0,0,0,100,100,0,0,1,4,5,2,90,90,720,1
-Style: Kara,{KARAFONT},66,&H00FFFFFF,&HFFFFFFFF,&H00000000,&H96000000,0,0,0,0,100,100,0,0,1,0,3,5,60,60,60,1
+Style: Kara,{KARAFONT},72,&H00FFFFFF,&HFFFFFFFF,&H70000000,&H96000000,0,0,0,0,100,100,0,0,1,1.5,3,5,60,60,60,1
 Style: Disc,{SUBFONT},30,&H40FFFFFF,&H40FFFFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,0,2,2,60,60,60,1
 Style: Flash,{KEYFONT},20,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
 
@@ -518,10 +518,44 @@ POP_T = []                                   # hero word pops -> tick SFX
 def hero(t0, t1, key, sub=None, x=540, y=760, keystyle="Key", color=WHT, subcolor=WHT):
     POP_T.append(t0); lockup(t0, t1, key, sub, x, y, keystyle, color, subcolor)
 KARA_Y = int(H * 0.59)                       # reference: captions centred at 59 % of the height
+SCRIPT = {"vo1": "Hoje eu não vim vender uma casa. Vim te mostrar um palácio.",
+          "vo2": "Século dezenove. Seis hectares murados no coração de Sintra.",
+          "vo3": "Capela própria, salões com teto de palácio, e uma escadaria que hoje ninguém mais constrói.",
+          "vo4": "Piscina de trinta e três metros, quadra de tênis, pomares e bosque.",
+          "vo5": "E o projeto já está aprovado. Trinta e duas suítes, hotel boutique ou casa de família. Você escolhe.",
+          "vo6": "Dez minutos da Praia Grande e de Cascais. Quarenta de Lisboa.",
+          "vo7": "Dezesseis milhões e meio de euros. Quer o dossiê completo? Comenta PALÁCIO que eu te mando."}
+NUMW = {"dezenove": "19", "trinta e três": "33", "trinta e duas": "32", "dez": "10", "quarenta": "40", "dezesseis milhões e meio": "16,5 M"}
+def script_words(track):
+    """Script tokens aligned to the whisper words of the line (difflib on normalized tokens); unmatched tokens get
+    timing interpolated between their matched neighbours. Returns [(word, start, end)] in VO time."""
+    asr = [(w, st, en) for w, st, en in WT[track] if w]
+    toks = SCRIPT[track].split()
+    A = [norm(w) for w, _, _ in asr]; Bw = [norm(t) for t in toks]
+    sm = difflib.SequenceMatcher(a=A, b=Bw, autojunk=False)
+    tm = [None] * len(toks)
+    for tag, i1, i2, j1, j2 in sm.get_opcodes():
+        if tag == "equal":
+            for d in range(i2 - i1): tm[j1 + d] = (asr[i1 + d][1], asr[i1 + d][2])
+        elif tag == "replace" and (i2 - i1) == (j2 - j1):
+            for d in range(i2 - i1): tm[j1 + d] = (asr[i1 + d][1], asr[i1 + d][2])
+    # interpolate the gaps
+    out = []; i = 0
+    while i < len(toks):
+        if tm[i] is not None: out.append((toks[i], tm[i][0], tm[i][1])); i += 1; continue
+        j = i
+        while j < len(toks) and tm[j] is None: j += 1
+        t0 = out[-1][2] if out else (asr[0][1] if asr else 0.0)
+        t1 = tm[j][0] if j < len(toks) else (asr[-1][2] if asr else t0 + 0.5 * (j - i))
+        if t1 <= t0: t1 = t0 + 0.25 * (j - i)
+        step = (t1 - t0) / (j - i)
+        for d in range(j - i): out.append((toks[i + d], t0 + d * step, t0 + (d + 1) * step))
+        i = j
+    return out
 def kara(track, keywords=(), max_words=4, max_chars=26, gap=0.38, t_end=None):
     """Karaoke captions: windows of 2-4 words that accumulate as spoken (ASS \\k with an invisible secondary colour);
     keywords are sung in yellow. Timing straight from the whisper word timestamps of the voice line."""
-    ws = [(w, BLK[track] + s, BLK[track] + e) for w, s, e in WT[track] if w]
+    ws = [(w, BLK[track] + s, BLK[track] + e) for w, s, e in script_words(track)]
     if not ws: return
     wins = []; cur = []
     for i, (w, s, e) in enumerate(ws):
@@ -557,7 +591,7 @@ kara("vo5", keywords=("aprovado", "trinta", "duas", "suítes", "hotel", "escolhe
 kara("vo4", keywords=("piscina", "trinta", "três", "tênis", "pomares", "bosque"))
 kara("vo6", keywords=("dez", "praia", "cascais", "quarenta", "lisboa"))
 # Act 6 — CTA: price as the one hero lockup outside the hook, karaoke for the rest, brand + disclosure
-hero(tw("vo7","dezesseis",0.0), tw("vo7","quer",0.42), "16,5 M€", None, 540, 520, keystyle="Huge", color=YEL)
+hero(tw("vo7","dezesseis",0.0), tw("vo7","quer",0.42), "16,5 M€", None, 540, 430, keystyle="Huge", color=YEL)
 kara("vo7", keywords=("dossiê", "comenta", "palácio"), t_end=S("s21") + 0.1)
 bsc0 = tw("vo7","quer",0.42)
 ev.append(f"Dialogue: 1,{ts(bsc0)},{ts(S('s21')+0.1)},Key,,0,0,0,,{{\\an5\\pos(540,430)\\fs150\\fscx80\\fscy80\\blur12\\alpha&H60&\\t(0,260,0.4,\\fscx100\\fscy100\\blur0\\alpha&H00&)}}B.S.C.")
