@@ -85,8 +85,14 @@ def envelope(path):
     e = np.abs(x[:n]).reshape(-1, 8).mean(1)                 # 1 kHz envelope
     e = e - e.mean(); return e / (np.linalg.norm(e) + 1e-9)
 LAG = {}
+PTEMPO = CFG.get("ptempo", {})                      # optional extra speed per presenter clip
+CLIP_AUDIO = CFG.get("presenter_audio", "vo") == "clip"   # use the clip's own (lip-synced) audio as the voice line
 for P, k in PRES.items():
-    sh(f"ffmpeg -v error -y -i src/{P}.mp4 -filter_complex '[0:v]setpts=PTS/{TEMPO}[v];[0:a]atempo={TEMPO}[a]' -map '[v]' -map '[a]' -r {FPS} -c:v libx264 -preset fast -crf 15 -c:a aac -b:a 192k src/{P}_t.mp4")
+    tp = TEMPO * float(PTEMPO.get(P, 1.0))
+    sh(f"ffmpeg -v error -y -i src/{P}.mp4 -filter_complex '[0:v]setpts=PTS/{tp:.4f}[v];[0:a]atempo={tp:.4f}[a]' -map '[v]' -map '[a]' -r {FPS} -c:v libx264 -preset fast -crf 15 -c:a aac -b:a 192k src/{P}_t.mp4")
+    if CLIP_AUDIO:
+        sh(f"ffmpeg -v error -y -i src/{P}_t.mp4 -vn -af 'highpass=f=70,loudnorm=I=-16:TP=-1.5:LRA=11' -ar 48000 src/{k}_t.wav")
+        LAG[P] = (0.0, 1.0); print(P, "clip audio as voice line, tempo", round(tp, 3), flush=True); continue
     a = envelope(f"src/{P}_t.mp4"); b = envelope(f"src/{k}_t.wav")
     if len(b) > len(a): a = np.pad(a, (0, len(b) - len(a)))
     c = np.correlate(a, b, mode="valid"); lag = int(np.argmax(c)); score = float(c[lag])
@@ -425,9 +431,9 @@ def flash(t0, strength="&H40&"):
     ev.append(f"Dialogue: 3,{ts(t0)},{ts(t0+0.14)},Flash,,0,0,0,,{{\\an7\\pos(0,0)\\alpha{strength}\\t(0,140,\\alpha&HFF&)\\p1}}m 0 0 l {W} 0 {W} {H} 0 {H}{{\\p0}}")
 
 # B1 — hook
-lockup(tw("vo1","hoje",0.0), tw("vo1","vim",0.22), "hoje", None, 540, 640)
+lockup(tw("vo1","hoje",0.0), tw("vo1","vim",0.22), "hoje", None, 540, 520)
 lockup(tw("vo1","não",0.12), tw("vo1","vender",0.36), "não vim", None, 480, 1180)
-lockup(tw("vo1","vender",0.36), tw("vo1","vim",0.55,1), "vender", "uma casa", 560, 620, color=YEL)
+lockup(tw("vo1","vender",0.36), tw("vo1","vim",0.55,1), "vender", "uma casa", 560, 720, color=YEL)
 lockup(tw("vo1","vim",0.55,1), tw("vo1","pal",0.78), "vim te", "mostrar", 470, 1200)
 lockup(tw("vo1","pal",0.78), S("s02") + 0.25, "PALÁCIO", None, 540, 1150, keystyle="Huge"); flash(tw("vo1","pal",0.78))
 # B2 — estate
