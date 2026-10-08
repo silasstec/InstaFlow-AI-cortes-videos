@@ -183,7 +183,7 @@ def presenter_shot(name, src, length, cuts):
         n = max(1, int(round((t1 - t0) * FPS)))
         cz = f"crop=iw/{z:.4f}:ih/{z:.4f}:(iw-iw/{z:.4f})/2:(ih-ih/{z:.4f})*0.42,scale={VW}:{VH}" if z != 1.0 else "null"
         # impact shake on every jump cut after the first: 6 frames of decaying jitter (crash-zoom feel)
-        shake = (f",scale={VW+60}:{VH+106},crop={VW}:{VH}:x='30+lt(n,6)*22*(1-n/6)*sin(n*2.9)':y='53+lt(n,6)*18*(1-n/6)*cos(n*2.3)'"
+        shake = (f",scale={VW+60}:{VH+106},crop={VW}:{VH}:x='30+lt(n,6)*22*(1-n/6)*sin(n*2.9)':y='53+lt(n,6)*18*(1-n/6)*cos(n*2.3)',setsar=1"
                  if i > 0 else "")
         parts.append(f"[0:v]trim=start={t0:.3f}:duration={t1-t0:.3f},setpts=PTS-STARTPTS,{NORM},{cz},"
                      f"zoompan=z='1+{push:.4f}*on/{n}':d=1:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)*0.9':s={VW}x{VH}:fps={FPS},setsar=1{shake},"
