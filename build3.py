@@ -5,8 +5,9 @@ transitions, punch-ins, sequential two-tier kinetic lockups, whoosh SFX, music b
 SMOKE=1 runs the whole pipeline on synthetic sources (no network, no whisper)."""
 import json, os, re, subprocess, shutil, math, sys
 
-W, H, FPS = 1080, 1920, 30
+W, H, FPS = 1080, 1920, 30                      # typography coordinate system (ASS PlayRes)
 SMOKE = os.environ.get("SMOKE") == "1"
+VW, VH = (540, 960) if SMOKE else (W, H)        # rendered video size
 OUT = "out2"; os.makedirs(OUT, exist_ok=True)
 FONTDIR = "fonts"; os.makedirs(FONTDIR, exist_ok=True)
 B = "https://d8j0ntlcm91z4.cloudfront.net/user_376XPpNiKYP0wVBJ1xS3f4v7M2A/"
@@ -31,7 +32,7 @@ if SMOKE:
         p = f"src/{k}.mp4"
         if not os.path.exists(p):
             L = 8 if k in ("P2", "P3") else 5
-            sh(f"ffmpeg -v error -y -f lavfi -i testsrc2=size={W}x{H}:rate=30:duration={L} -f lavfi -i 'sine=frequency={200+30*i}:duration={L}' "
+            sh(f"ffmpeg -v error -y -f lavfi -i testsrc2=size={VW}x{VH}:rate=30:duration={L} -f lavfi -i 'sine=frequency={200+30*i}:duration={L}' "
                f"-vf 'drawtext=text={k}:fontsize=260:fontcolor=white:x=(w-tw)/2:y=(h-th)/2,hue=h={i*25}' -c:v libx264 -preset ultrafast -crf 22 -c:a aac -shortest {p}")
     for k, L in [("vo1", 3.7), ("vo2", 5.5), ("vo3", 7.9), ("vo4", 5.0), ("vo5", 7.7), ("vo6", 4.0), ("vo7", 6.2)]:
         p = f"src/{k}.mp3"
@@ -44,9 +45,14 @@ else:
         ext = ".mp3" if v.endswith(".mp3") else ".mp4"
         dst = f"src/{k}{ext}"
         if not (os.path.exists(dst) and os.path.getsize(dst) > 1000):
-            sh(f"curl -sL --retry 3 -o '{dst}' '{v if v.startswith('http') else B + v}'")
+            u = v if v.startswith('http') else B + v
+            for attempt in range(4):
+                r = sh(f"curl -sL --retry 5 --retry-all-errors --retry-delay 1 -o '{dst}' '{u}'", check=False)
+                if r.returncode == 0 and os.path.exists(dst) and os.path.getsize(dst) > 1000: break
+                print("retry download", dst, r.stderr[-200:], flush=True); import time; time.sleep(2)
+            else: raise SystemExit("download failed: " + dst)
     if CFG.get("music_url") and not (os.path.exists("src/music.mp3") and os.path.getsize("src/music.mp3") > 10000):
-        sh(f"curl -sL --retry 3 -o src/music.mp3 '{CFG['music_url']}'")
+        sh(f"curl -sL --retry 5 --retry-all-errors --retry-delay 1 -o src/music.mp3 '{CFG['music_url']}'", check=False)
 for name, url in [("ArchivoBlack-Regular.ttf", "https://github.com/google/fonts/raw/main/ofl/archivoblack/ArchivoBlack-Regular.ttf"),
                   ("Inter.ttf", "https://github.com/google/fonts/raw/main/ofl/inter/Inter%5Bopsz%2Cwght%5D.ttf"),
                   ("Montserrat-ExtraBold.ttf", "https://github.com/google/fonts/raw/main/ofl/montserrat/static/Montserrat-ExtraBold.ttf")]:
@@ -113,13 +119,13 @@ for k in PRES.values():                      # presenter line length = last word
 print("VO", {k: round(v, 2) for k, v in VO.items()}, flush=True)
 
 # ---------- 4. shot builders ----------
-NORM = f"scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},setsar=1"
+NORM = f"scale={VW}:{VH}:force_original_aspect_ratio=increase,crop={VW}:{VH},setsar=1"
 GRADE = "eq=contrast=1.07:saturation=1.12:brightness=0.004,unsharp=3:3:0.35"
 def radial(strength=0.10, taps=5):
     parts = [f"split={taps}" + "".join(f"[r{i}]" for i in range(taps))]
     for i in range(taps):
         z = 1 + strength * i / (taps - 1)
-        parts.append(f"[r{i}]scale=iw*{z:.4f}:ih*{z:.4f},crop={W}:{H}[z{i}]")
+        parts.append(f"[r{i}]scale=iw*{z:.4f}:ih*{z:.4f},crop={VW}:{VH}[z{i}]")
     parts.append("".join(f"[z{i}]" for i in range(taps)) + f"mix=inputs={taps}")
     return ";".join(parts)
 
@@ -164,7 +170,7 @@ def plain_shot(name, src, t_in, length, speed=1.0, tmix=1, push=0.0):
     vf = seg(src, t_in, length * speed, speed, tmix, length)
     if push > 0:
         n = int(length * FPS)
-        vf += f",zoompan=z='1+{push:.4f}*on/{n}':d=1:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s={W}x{H}:fps={FPS},setsar=1"
+        vf += f",zoompan=z='1+{push:.4f}*on/{n}':d=1:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s={VW}x{VH}:fps={FPS},setsar=1"
     sh(f"ffmpeg -v error -y -i '{src}' -vf \"{vf}\" -t {length} -c:v libx264 -preset fast -crf 15 -r {FPS} '{out}'")
     print(name, "->", round(dur(out), 2), flush=True); return out
 
@@ -175,12 +181,12 @@ def presenter_shot(name, src, length, cuts):
     parts = []; labels = []
     for i, (t0, t1, z, push) in enumerate(cuts):
         n = max(1, int(round((t1 - t0) * FPS)))
-        cz = f"crop=iw/{z:.4f}:ih/{z:.4f}:(iw-iw/{z:.4f})/2:(ih-ih/{z:.4f})*0.42,scale={W}:{H}" if z != 1.0 else "null"
+        cz = f"crop=iw/{z:.4f}:ih/{z:.4f}:(iw-iw/{z:.4f})/2:(ih-ih/{z:.4f})*0.42,scale={VW}:{VH}" if z != 1.0 else "null"
         # impact shake on every jump cut after the first: 6 frames of decaying jitter (crash-zoom feel)
-        shake = (f",scale={W+60}:{H+106},crop={W}:{H}:x='30+lt(n,6)*22*(1-n/6)*sin(n*2.9)':y='53+lt(n,6)*18*(1-n/6)*cos(n*2.3)'"
+        shake = (f",scale={VW+60}:{VH+106},crop={VW}:{VH}:x='30+lt(n,6)*22*(1-n/6)*sin(n*2.9)':y='53+lt(n,6)*18*(1-n/6)*cos(n*2.3)'"
                  if i > 0 else "")
         parts.append(f"[0:v]trim=start={t0:.3f}:duration={t1-t0:.3f},setpts=PTS-STARTPTS,{NORM},{cz},"
-                     f"zoompan=z='1+{push:.4f}*on/{n}':d=1:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)*0.9':s={W}x{H}:fps={FPS},setsar=1{shake},"
+                     f"zoompan=z='1+{push:.4f}*on/{n}':d=1:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)*0.9':s={VW}x{VH}:fps={FPS},setsar=1{shake},"
                      f"trim=duration={t1-t0:.3f},setpts=PTS-STARTPTS[p{i}]")
         labels.append(f"[p{i}]")
     fc = ";".join(parts) + ";" + "".join(labels) + f"concat=n={len(cuts)}:v=1:a=0,format=yuv420p,settb=AVTB[v]"
