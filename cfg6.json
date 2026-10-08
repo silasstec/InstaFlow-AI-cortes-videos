@@ -39,5 +39,8 @@
   "c84": "hf_20261008_125340_6ed9df20-27de-4a37-ad43-9d5ad8d2c47f.mp4"
  },
  "music_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_376XPpNiKYP0wVBJ1xS3f4v7M2A/fd0bd00b-2e9d-4835-bce7-9c3046ccc3b1.mp3",
- "tempo": 1.08
+ "tempo": 1.08,
+ "vtempo": {
+  "vo5": 0.9
+ }
 }

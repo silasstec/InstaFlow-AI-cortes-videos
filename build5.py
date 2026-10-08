@@ -70,11 +70,12 @@ print("fonts:", KEYFONT, "/", SUBFONT, flush=True)
 # ---------- 2. voice lines ----------
 # b-roll VO: tempo-up + trim silences. Presenter VO: tempo-up only (offset vs clip measured below).
 VO = {}
+VT = CFG.get("vtempo", {})                 # optional per-line tempo override
 for k in BROLL_VO:
-    sh(f"ffmpeg -v error -y -i src/{k}.mp3 -af 'atempo={TEMPO},silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.05,areverse,silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.12,areverse,loudnorm=I=-16:TP=-1.5:LRA=11' -ar 48000 src/{k}_t.wav")
+    sh(f"ffmpeg -v error -y -i src/{k}.mp3 -af 'atempo={float(VT.get(k, TEMPO)):.3f},silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.05,areverse,silenceremove=start_periods=1:start_threshold=-45dB:start_silence=0.12,areverse,loudnorm=I=-16:TP=-1.5:LRA=11' -ar 48000 src/{k}_t.wav")
     VO[k] = dur(f"src/{k}_t.wav")
 for k in PRES.values():
-    sh(f"ffmpeg -v error -y -i src/{k}.mp3 -af 'atempo={TEMPO},loudnorm=I=-16:TP=-1.5:LRA=11' -ar 48000 src/{k}_t.wav")
+    sh(f"ffmpeg -v error -y -i src/{k}.mp3 -af 'atempo={float(VT.get(k, TEMPO)):.3f},loudnorm=I=-16:TP=-1.5:LRA=11' -ar 48000 src/{k}_t.wav")
 
 # presenter clips are prepared AFTER the VO word timings (they are time-warped onto the VO lines)
 import numpy as np
