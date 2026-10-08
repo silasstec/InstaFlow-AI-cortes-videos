@@ -143,7 +143,9 @@ def seg(src, t_in, src_len, speed, tmix, out_len, radial_strength=0.0):
 SKIP_SHOTS = os.environ.get("SKIP_SHOTS") == "1"
 def cached(out, length):
     if SKIP_SHOTS: return True
-    return os.path.exists(out) and abs(dur(out) - length) < 0.07
+    if not (os.path.exists(out) and os.path.getsize(out) > 10000): return False
+    try: return abs(dur(out) - length) < 0.07
+    except SystemExit: os.remove(out); return False
 
 def ramp_shot(name, src, t_in, length, fast=3.6, ramp=0.42, radial_strength=0.12, speed_rest=1.15):
     """Hyperlapse-style shot: fast blurred entry that decelerates to near real time."""
