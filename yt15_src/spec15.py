@@ -84,7 +84,7 @@ over(A('T01b', 'isso'), E('T01b') + 0.1, 'slam', y=600, size=260, items=[{'at': 
 over(A('T02', 'cem'), E('T02'), 'stamp', text='100% IA', x=130, y=280, size=130, rot=-5, color='orange')
 over(A('T02', 'oscar'), E('T02'), 'stamp', text='Oscar?', x=1300, y=560, size=120, rot=6)
 card(A('T03', 'globo'), E('T03'), 'timeline', kicker='GLOBO · CHAMADA FEITA COM IA', src='FONTE: TERRA / ROLLING STONE BRASIL · 4 SET 2026',
-     steps=[{'at': A('T03', 'colocou'), 'label': '2 SET', 'sub': 'Mion vira Tom Cruise · no ar'}, {'at': A('T03', 'apagou'), 'label': '3 SET', 'sub': 'apagado', 'red': True}, {'at': A('T03', 'notificacao'), 'label': 'HOLLYWOOD', 'sub': 'notificação extrajudicial', 'red': True}])
+     steps=[{'at': A('T03', 'colocou'), 'label': '2 SET', 'sub': 'Mion vira Tom Cruise · no ar'}, {'at': A('T03', 'apagou'), 'label': 'NOTIFICAÇÃO', 'sub': 'estúdio de Hollywood', 'red': True}, {'at': A('T03', 'notificacao'), 'label': '3 SET', 'sub': 'peça apagada', 'red': True}])
 over(S('T04a'), E('T04b'), 'shade', side='left')
 over(S('T04a'), E('T04b'), 'stack', x=110, y=300, size=48, numbered=True, title={'at': A('T04a', 'mostrar'), 'text': 'HOJE NESTE VÍDEO'},
      items=[{'at': A('T04b', 'quem'), 'text': 'Quem já usa'}, {'at': A('T04b', 'dizendo'), 'text': 'Quem está dizendo não'}, {'at': A('T04b', 'regra'), 'text': 'A regra nova do Oscar'}, {'at': A('T04b', 'guerra'), 'text': 'A guerra das ferramentas'}, {'at': A('T04b', 'muda'), 'text': 'O que muda para você', 'accent': True}])
@@ -97,33 +97,32 @@ EV.append({'k': 'sting', 't0': st['a'], 't1': st['b'], 'type': 'sting', 'p': {}}
 # ---------------- 01 HOLLYWOOD ----------------
 chapter('01', 'Hollywood já está usando', 'T061')
 over(S('T061') + 2.6, S('T061') + 6.3, 'lt', name='Silas Costa', role='SILASTEC CAST · FULGORTEC')
-over(A('T062', 'ted'), A('T062', 'contou') - 0.1, 'stack', x=96, y=880, size=34, items=[{'at': A('T062', 'ted'), 'text': 'TED SARANDOS · CO-CEO DA NETFLIX'}])
-card(A('T062', 'contou') - 0.1, E('T062'), 'stat', kicker='NETFLIX · IA GENERATIVA EM 2026', big='≈300', count=300, prefix='≈', line='filmes e séries com IA generativa', sub='pós-produção, multidões, pré-visualização', hit=A('T062', 'trezentos'), src='FONTE: NETFLIX · RESULTADOS 2T 2026 (JUL)')
+card(A('T062', 'contou') - 0.1, E('T062'), 'stat', kicker='NETFLIX · IA GENERATIVA EM 2026', big='≈300', count=300, prefix='≈', line='filmes e séries com IA generativa', sub='pós-produção, multidões, pré-visualização', hit=A('T062', 'trezentos'), src='FONTE: NETFLIX · CARTA AOS INVESTIDORES 2T 2026 · 16 JUL')
 broll(A('T071', 'multidoes'), A('T071', 'batalhas'), 'b2')
 broll(A('T071', 'batalhas'), A('T071', 'planos'), 'b3')
 broll(A('T071', 'planos'), E('T071'), 'b4')
-card(A('T072', 'dezessete') - 0.2, E('T072'), 'stat', kicker='DOCUMENTÁRIO · THE AMERICAN EXPERIMENT', big='17 MIN', line='de imagens feitas com IA', sub='na metade do tempo e pela metade do custo', hit=A('T072', 'dezessete'), src='FONTE: NETFLIX · 2026')
+card(A('T072', 'dezessete') - 0.2, E('T072'), 'stat', kicker='DOCUSSÉRIE · THE AMERICAN EXPERIMENT', big='17 MIN', line='de imagens feitas com IA', sub='na metade do tempo e pela metade do custo', hit=A('T072', 'dezessete'), src='FONTE: FORTUNE · 16 JUL 2026')
 over(A('T08', 'cena'), E('T08'), 'shade', side='left')
 over(A('T08', 'cena'), E('T08'), 'stack', x=110, y=380, size=60, items=[{'at': A('T08', 'cena'), 'text': 'A cena que era cortada'}, {'at': A('T08', 'agora'), 'text': 'agora entra.', 'accent': True}])
 card(A('T09a1', 'netflix') - 0.1, E('T09a1'), 'stat', kicker='NETFLIX COMPRA A INTERPOSITIVE · MAR 2026', big='US$ 587 MI', line='a empresa de IA do Ben Affleck', hit=A('T09a1', 'quinhentos'), src='FONTE: FORBES · INC. · 2026')
 over(A('T09a2', 'virou'), E('T09a2'), 'stack', x=96, y=880, size=34, items=[{'at': A('T09a2', 'virou'), 'text': 'BEN AFFLECK → CONSELHEIRO DE IA DA NETFLIX'}])
 over(A('T09b', 'animals'), E('T09b'), 'stamp', text='"Animals" · 9 out', x=110, y=690, size=78, rot=-5, color='orange')
-card(A('T10', 'comparou') - 0.1, E('T10'), 'quote', kicker='BEN AFFLECK SOBRE ONDE USOU IA', text='Como um mágico que não revela o truque.', who='E o público achou o truque. Rotten Tomatoes: 35%.', src='FONTE: FORBES 7 OUT · IOL 16 OUT 2026')
+card(A('T10', 'comparou') - 0.1, E('T10'), 'quote', kicker='BEN AFFLECK · BLOOMBERG SCREENTIME', text='Comparou contar onde usou IA a um mágico que revela o truque antes do show.', who='Críticos apontam IA no plano; não há confirmação. Rotten Tomatoes: ~35% (out 2026).', src='FONTE: WORLD OF REEL (1 OUT) · FORBES (7 OUT) · IOL (16 OUT 2026)', marks=False)
 over(A('T11', 'perdoa') - 0.3, A('T11', 'amplifica') - 0.1, 'slam', y=600, size=200, items=[{'at': A('T11', 'perdoa') - 0.3, 'light': 'A IA NÃO PERDOA', 'heavy': 'PLANO PREGUIÇOSO'}])
 over(A('T11', 'amplifica'), E('T11'), 'shade', side='bottom')
 over(A('T11', 'amplifica'), E('T11'), 'stack', x=110, y=820, size=54, items=[{'at': A('T11', 'amplifica'), 'text': 'Ela amplifica o que você faz.', 'accent': True}])
 broll(S('T12a'), E('T12a'), 'b12')
 over(S('T12a') + 0.2, E('T12a'), 'stamp', text='Disney', x=1300, y=300, size=110, rot=-6, color='orange')
-card(A('T12b', 'cargo') - 0.3, E('T12b'), 'stat', kicker='DISNEY · 2 OUT 2026', big='1º CTO', line='ex-CEO da Character.ai para as plataformas de IA', hit=A('T12b', 'cargo'), src='FONTE: CIO DIVE · 21 SET 2026')
-card(S('T12c'), E('T12c'), 'quote', kicker='JOSH D\'AMARO · CEO DA DISNEY', text='Amplifica o que os nossos contadores de histórias fazem, não os substitui.', who='Teleconferência de resultados · 5 ago 2026', src='FONTE: LAUGHING PLACE · 5 AGO 2026')
+card(A('T12b', 'cargo') - 0.3, E('T12b'), 'stat', kicker='DISNEY · ANUNCIADO EM 18 SET 2026', big='1º CTO', line='ex-presidente da Character.ai à frente das plataformas de IA', hit=A('T12b', 'cargo'), src='FONTE: CIO DIVE · 21 SET 2026')
+card(S('T12c'), E('T12c'), 'quote', kicker='JOSH D\'AMARO · CEO DA DISNEY', text='Amplifica o que os nossos contadores de histórias podem fazer, não os substitui.', who='Teleconferência de resultados · 5 ago 2026', src='FONTE: LAUGHING PLACE · 5 AGO 2026')
 
 # ---------------- 02 FILME 100% IA + OSCAR ----------------
-chapter('02', 'O primeiro filme 100% IA', 'T13a')
+chapter('02', 'O filme 100% IA que quer o Oscar', 'T13a')
 over(A('T13a', 'chama'), E('T13a'), 'shade', side='left')
 over(A('T13a', 'chama'), E('T13a'), 'stack', x=110, y=360, size=58, items=[{'at': A('T13a', 'gods'), 'text': 'GODS DON\'T GIVE GIFTS', 'accent': True}, {'at': A('T13a', 'youtuber'), 'text': 'criado por um youtuber'}, {'at': A('T13a', 'fable'), 'text': 'produzido pela Fable'}])
-broll(S('T13b'), A('T13b', 'consciencia') - 0.1, 'b1')
-broll(A('T13b', 'consciencia') - 0.1, E('T13b'), 'b5')
-card(A('T14', 'adiaram') - 0.6, E('T14'), 'timeline', kicker='GODS DON\'T GIVE GIFTS · ESTREIA NOS EUA', src='FONTE: FUTURISM · LA VANGUARDIA (8 OUT 2026)',
+broll(S('T13b'), A('T13b', 'transumanismo') - 0.1, 'b1')
+broll(A('T13b', 'transumanismo') - 0.1, E('T13b'), 'b5')
+card(A('T14', 'adiaram') - 0.6, E('T14'), 'timeline', kicker='GODS DON\'T GIVE GIFTS · ESTREIA NOS EUA', src='FONTE: NETINFLUENCER (7 OUT) · VANGUARDIA (8 OUT 2026)',
      steps=[{'at': A('T14', 'adiaram') - 0.4, 'label': '30 OUT', 'sub': 'data original', 'red': True}, {'at': A('T14', 'dezembro'), 'label': '4 DEZ', 'sub': 'nova data'}, {'at': A('T14', 'animacao'), 'label': 'OSCAR?', 'sub': 'melhor animação'}])
 over(A('T15', 'academia'), E('T15') + 0.1, 'slam', y=600, size=210, items=[{'at': A('T15', 'academia'), 'light': 'EM MAIO A ACADEMIA', 'heavy': 'MUDOU AS REGRAS'}])
 card(A('T16', 'vale') - 0.3, E('T16'), 'list', kicker='OSCAR 2027 · REGRAS NOVAS', title='SÓ VALE HUMANO', src='FONTE: NPR · TECHCRUNCH · 2 MAI 2026',
@@ -142,8 +141,8 @@ over(A('T19', 'plano'), E('T19') + 0.1, 'slam', y=600, size=230, items=[{'at': A
 chapter('03', 'Atores, clones e dublagem', 'T20a')
 broll(A('T20a', 'tilly') - 0.2, E('T20a'), 'b7')
 card(A('T20b', 'piers') - 0.3, E('T20b'), 'glitch', kicker='TILLY NORWOOD · ATRIZ GERADA POR IA', first='AO VIVO', second='CANTONÊS', secondAt=A('T20b', 'cantones'), stat='14M', statAt=A('T20b', 'catorze'), src='FONTE: EURONEWS · 21 SET 2026')
-card(A('T21', 'ela') - 0.2, E('T21'), 'quote', kicker='SAG-AFTRA SOBRE TILLY NORWOOD', text='Um personagem gerado por um programa treinado no trabalho de inúmeros atores de verdade.', who='Sindicato dos atores de Hollywood', src='FONTE: EURONEWS · SET 2026')
-card(A('T22a', 'disse') - 0.2, E('T22a'), 'quote', kicker='MARK WAHLBERG · TECHCRUNCH DISRUPT · 16 OUT', text='Uma versão de IA dele continuando Ted por décadas? Ele não se opõe.', who='E quer que filhos e netos cuidem da imagem', src='FONTE: TECHCRUNCH · 16 OUT 2026', marks=False)
+card(A('T21', 'ela') - 0.2, E('T21'), 'quote', kicker='SAG-AFTRA SOBRE TILLY NORWOOD', text='Não é uma atriz. É um personagem gerado por um programa de computador treinado no trabalho de inúmeros artistas profissionais, sem permissão nem compensação.', who='SAG-AFTRA, sindicato dos atores de Hollywood', src='FONTE: SAG-AFTRA · 30 SET 2025')
+card(A('T22a', 'disse') - 0.2, E('T22a'), 'quote', kicker='MARK WAHLBERG · TECHCRUNCH DISRUPT · OUT 2026', text='Uma versão de IA dele continuando Ted por décadas? Ele não se opõe.', who='E acharia legal os filhos e netos cuidarem da imagem', src='FONTE: TECHCRUNCH · 16 OUT 2026', marks=False)
 over(A('T23a', 'nicolas'), E('T23a'), 'stamp', text='Nicolas Cage · NYCC', x=110, y=690, size=72, rot=-5, color='orange')
 card(S('T23b'), E('T23b'), 'quote', kicker='NICOLAS CAGE · COMIC CON DE NOVA YORK · 10 OUT', text='Não assinei o waiver para usarem IA em Spider-Noir. Não sou um ator amigável à IA.', who='Tradução livre · TheWrap', src='FONTE: THEWRAP · 10 OUT 2026')
 card(A('T24', 'amazon') - 0.2, E('T24'), 'stat', kicker='SPIDER-NOIR · AMAZON', big='11', line='indicações ao Emmy — e cancelada antes', hit=A('T24', 'onze'), src='FONTE: THEWRAP · 10 OUT 2026')
@@ -152,9 +151,9 @@ broll(A('T26a', 'prime') - 0.2, E('T26a'), 'n208')
 card(A('T26b', 'maxton') - 0.3, E('T26b'), 'pipeline', kicker='PRIME VIDEO · MAXTON HALL · 9 SET 2026', src='FONTE: EXAME · TECHSPOT · SET 2026',
      nodes=[{'at': A('T26b', 'maxton'), 'label': 'ATOR', 'sub': 'filmagem original'}, {'at': A('T26b', 'voz'), 'label': 'VOZ', 'sub': 'dublador humano'}, {'at': A('T26b', 'imagem'), 'label': 'LÁBIOS', 'sub': 'ajustados por IA'}],
      foot='A voz continua humana. A boca, não.')
-over(A('T27', 'portugues'), E('T27'), 'stamp', text='Próximo: português', x=110, y=690, size=78, rot=-5, color='orange')
+over(A('T27', 'portugues'), E('T27'), 'stamp', text='Português? Ainda sem anúncio', x=110, y=690, size=78, rot=-5, color='orange')
 broll(A('T28a', 'michael') - 0.2, E('T28a'), 'n209')
-over(A('T28a', 'odisseia'), E('T28a'), 'stack', x=110, y=840, size=40, items=[{'at': A('T28a', 'odisseia'), 'text': 'MICHAEL CAINE × ELEVENLABS · 13 H DE AUDIOLIVRO', 'accent': True}])
+over(A('T28a', 'odisseia'), E('T28a'), 'stack', x=110, y=840, size=40, items=[{'at': A('T28a', 'odisseia'), 'text': 'MICHAEL CAINE × ELEVENLABS · AUDIOLIVRO DE 13 H', 'accent': True}])
 card(S('T28b'), E('T28b'), 'stat', kicker='ELEVENLABS · MERCADO DE VOZES', big='US$ 22 MI', line='pagos a mais de 10 mil criadores de voz', hit=A('T28b', 'vinte'), src='FONTE: LA TIMES · 30 AGO 2026')
 card(A('T29', 'kilmer') - 0.4, E('T29'), 'quote', kicker='VAL KILMER · AS DEEP AS THE GRAVE', text='Recriado por IA, com autorização e pagamento ao espólio.', who='Segundo a filha, Mercedes Kilmer', src='FONTE: LIVENOW FOX · 2026', marks=False)
 over(A('T30', 'assina') - 0.2, E('T30') + 0.1, 'slam', y=600, size=220, items=[{'at': A('T30', 'assina') - 0.2, 'out': A('T30', 'recebe') - 0.1, 'light': 'QUEM', 'heavy': 'ASSINA'}, {'at': A('T30', 'recebe') - 0.1, 'light': 'E QUEM', 'heavy': 'RECEBE'}])
@@ -175,13 +174,13 @@ card(S('T34c'), E('T34c'), 'stat', kicker='AI ACT · MULTA MÁXIMA', big='€ 15
 # ---------------- 05 FERRAMENTAS ----------------
 chapter('05', 'A guerra das ferramentas', 'T36a')
 broll(A('T36a', 'guerra') - 0.2, E('T36a'), 'n215')
-card(S('T36b'), E('T36b'), 'off', kicker='OPENAI · 24 MAR 2026', word='SORA', offAt=A('T36b', 'desligou'), line='E a Disney saiu do acordo bilionário.', lineAt=A('T36b', 'disney'), src='FONTE: OPENAI · THE HOLLYWOOD REPORTER')
+card(S('T36b'), E('T36b'), 'off', kicker='OPENAI · 24 MAR 2026', word='SORA', offAt=A('T36b', 'fim'), line='E a Disney saiu do acordo bilionário.', lineAt=A('T36b', 'disney'), src='FONTE: OPENAI · THE HOLLYWOOD REPORTER')
 broll(S('T37a'), A('T37a', 'trinta') - 0.2, 'b8')
-card(A('T37a', 'trinta') - 0.2, E('T37a'), 'stat', kicker='BYTEDANCE · SEEDANCE 2.5 · 31 JUL 2026', big='30 S', line='contínuos, com som · modo longo até 3 min', sub='a partir de US$ 0,097 por segundo', hit=A('T37a', 'trinta'), src='FONTE: PR NEWSWIRE · 3 AGO 2026')
+card(A('T37a', 'trinta') - 0.2, E('T37a'), 'stat', kicker='BYTEDANCE · SEEDANCE 2.5 · 31 JUL 2026', big='30 S', line='contínuos, com som · modo longo até 3 min', sub='a partir de US$ 0,097/s (oferta de lançamento, plano anual)', hit=A('T37a', 'trinta'), src='FONTE: PR NEWSWIRE · 3 AGO 2026')
 over(S('T37b'), E('T37b'), 'stamp', text='No Runway · ago', x=110, y=690, size=78, rot=-5, color='orange')
-card(A('T38a', 'gemini') - 0.2, E('T38a'), 'stat', kicker='GOOGLE · GEMINI OMNI 1.1 FLASH', big='40 S', line='1080p ou 4K · grátis no Google Vids', hit=A('T38a', 'quarenta'), src='FONTE: GOOGLE · GEMINI API DOCS · UNITE.AI')
+card(A('T38a', 'gemini') - 0.2, E('T38a'), 'stat', kicker='GOOGLE · GEMINI OMNI 1.1 FLASH', big='40 S', line='até 40 s com extensões · 1080p/4K por upscale · grátis no Google Vids', hit=A('T38a', 'quarenta'), src='FONTE: GOOGLE · GEMINI API DOCS · UNITE.AI')
 over(A('T38b', 'veo'), E('T38b'), 'stamp', text='Veo 3.1 preview · OFF hoje', x=110, y=690, size=72, rot=-5)
-card(A('T39a', 'kuaishou') - 0.2, E('T39a'), 'stat', kicker='KUAISHOU (KLING) · BAIDU · ALIBABA · TENCENT', big='US$ 3 BI', line='rodada para a Kling AI', hit=A('T39a', 'tres'), src='FONTE: SCMP · 3 JUL 2026')
+card(A('T39a', 'kuaishou') - 0.2, E('T39a'), 'stat', kicker='KLING AI (KUAISHOU) · BAIDU · ALIBABA · TENCENT', big='US$ 3 BI', line='rodada em captação para a Kling AI', hit=A('T39a', 'tres'), src='FONTE: SCMP · 3 JUL 2026')
 card(S('T39b'), E('T39b'), 'list', kicker='O DINHEIRO NAS FERRAMENTAS', src='FONTE: RUNWAY · KOMPOZY · FINSMES (2026)',
      items=[{'at': A('T39b', 'premiere'), 'text': 'Runway: plugins no Premiere, After Effects e DaVinci', 'tag': '01'}, {'at': A('T39b', 'lionsgate'), 'text': 'Lionsgate vira sócia da Runway', 'tag': '02'}, {'at': A('T39b', 'higgsfield'), 'text': 'Higgsfield: US$ 400 mi · avaliada em US$ 5,4 bi', 'tag': '03', 'accent': True}], size=50)
 card(A('T40', 'plano') - 0.2, E('T40'), 'pipeline', kicker='COMO UM PLANO É FEITO HOJE', src='',
@@ -190,16 +189,16 @@ card(A('T40', 'plano') - 0.2, E('T40'), 'pipeline', kicker='COMO UM PLANO É FEI
 broll(S('T41a'), E('T41a'), 'n214')
 over(A('T41a', 'disney'), E('T41a'), 'stamp', text='Estúdios × Midjourney', x=980, y=320, size=78, rot=-5)
 card(A('T41b', 'seis') - 0.3, E('T41b'), 'timeline', kicker='DISNEY, UNIVERSAL E WARNER × MIDJOURNEY', src='FONTE: AI LAWSUIT TRACKER · 19 OUT 2026',
-     steps=[{'at': A('T41b', 'seis'), 'label': '6 OUT', 'sub': 'entrega dos dados de treino'}, {'at': A('T41b', 'pericia'), 'label': '9 NOV', 'sub': 'perícia'}, {'at': A('T41b', 'julgamento'), 'label': '?', 'sub': 'sem data de julgamento'}])
+     steps=[{'at': A('T41b', 'seis'), 'label': '6 OUT', 'sub': 'entrega dos dados de treino'}, {'at': A('T41b', 'pericia'), 'label': '9 NOV', 'sub': 'fim da fase pericial'}, {'at': A('T41b', 'julgamento'), 'label': '?', 'sub': 'sem data de julgamento'}])
 over(A('T42', 'justo') - 0.2, E('T42') + 0.1, 'slam', y=600, size=230, items=[{'at': A('T42', 'justo') - 0.2, 'light': 'TREINAR COM FILMES É', 'heavy': 'USO JUSTO?'}])
 
 # ---------------- 06 PÚBLICO ----------------
 chapter('06', 'O público e onde a IA falha', 'T431')
 broll(A('T431', 'pesquisa') - 0.2, E('T431'), 'n216')
-card(S('T432'), E('T432'), 'bars', kicker='ANGUS REID · EUA · JUN 2026 · 2.007 ADULTOS', title='Você assistiria a um filme 100% feito por IA?', src='FONTE: ANGUS REID INSTITUTE · 10 JUL 2026',
+card(S('T432'), E('T432'), 'bars', kicker='ANGUS REID USA · JUN 2026 · 2.007 ADULTOS', title='Você assistiria a um filme 100% feito por IA?', src='FONTE: ANGUS REID USA · 10 JUL 2026',
      bars=[{'at': A('T432', 'trinta'), 'label': 'Sim', 'value': 39}, {'at': A('T432', 'cinquenta'), 'label': 'Não', 'value': 50, 'color': 'red'}])
-card(A('T44', 'jovens') - 0.2, E('T44'), 'bars', kicker='DISPOSTOS A ASSISTIR, POR IDADE', title='Os mais jovens são os mais resistentes.', src='FONTE: ANGUS REID INSTITUTE · 2026',
-     bars=[{'at': A('T44', 'jovens'), 'label': '18–34 anos', 'value': 35}, {'at': A('T44', 'geracao'), 'label': '55+ anos', 'value': 42}])
+card(A('T44', 'jovens') - 0.2, E('T44'), 'bars', kicker='DISPOSTOS A ASSISTIR, POR IDADE', title='Os mais jovens são os mais resistentes.', src='FONTE: ANGUS REID USA · 10 JUL 2026',
+     bars=[{'at': A('T44', 'jovens'), 'label': '18–34 anos', 'value': 35}, {'at': A('T44', 'resistentes'), 'label': '55+ anos', 'value': 42}])
 card(A('T45', 'maos') - 0.3, E('T45'), 'list', kicker='ONDE A IA AINDA FALHA', title='CUIDADO COM', src='',
      items=[{'at': A('T45', 'maos'), 'text': 'Mãos', 'tag': '01'}, {'at': A('T45', 'fisica'), 'text': 'Física', 'tag': '02'}, {'at': A('T45', 'continuidade'), 'text': 'Continuidade entre planos', 'tag': '03'}, {'at': A('T45', 'texto'), 'text': 'Texto dentro da imagem', 'tag': '04'}], size=64)
 over(A('T46', 'direcao') - 0.2, E('T46'), 'shade', side='left')
@@ -207,7 +206,7 @@ over(A('T46', 'direcao') - 0.2, E('T46'), 'stack', x=110, y=380, size=64, items=
 
 # ---------------- 07 PARA VOCÊ ----------------
 chapter('07', 'O que muda para você', 'T47')
-over(A('T47', 'criador') - 0.3, E('T47') + 0.1, 'slam', y=600, size=240, items=[{'at': A('T47', 'criador') - 0.3, 'light': 'SAIU DE UM', 'heavy': 'CRIADOR'}])
+over(A('T47', 'criador') - 0.3, E('T47') + 0.1, 'slam', y=600, size=240, items=[{'at': A('T47', 'criador') - 0.3, 'light': 'NASCEU DE UM', 'heavy': 'CRIADOR'}])
 broll(A('T48a', 'videoclipe') - 0.2, A('T48a', 'trailer'), 'b11')
 broll(A('T48a', 'trailer'), A('T48a', 'imobiliario'), 'pf:ih3')
 broll(A('T48a', 'imobiliario'), A('T48a', 'publicidade'), 'pf:sintra')

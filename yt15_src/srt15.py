@@ -7,7 +7,7 @@ for s in TL['tl']:
     if isinstance(s.get('n'), int):
         ws = s['words']
         if s['id'] == 'T14':  # whisper hallucinated on the leading/trailing silence of this take
-            ws = [w for w in ws if 199.9 <= w[1] < 209.6]
+            ws = [w for w in ws if s['a'] + 0.4 <= w[1] < s['a'] + 10.1]
         words += [[w[0], w[1]] for w in ws]
     elif s['n'] == 'tut':
         cache = H + '/build/tut_words.json'
