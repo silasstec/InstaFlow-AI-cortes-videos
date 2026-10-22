@@ -102,10 +102,12 @@ broll(A('T071', 'multidoes'), A('T071', 'batalhas'), 'b2')
 broll(A('T071', 'batalhas'), A('T071', 'planos'), 'b3')
 broll(A('T071', 'planos'), E('T071'), 'b4')
 card(A('T072', 'dezessete') - 0.2, E('T072'), 'stat', kicker='DOCUSSÉRIE · THE AMERICAN EXPERIMENT', big='17 MIN', line='de imagens feitas com IA', sub='na metade do tempo e pela metade do custo', hit=A('T072', 'dezessete'), src='FONTE: FORTUNE · 16 JUL 2026')
+broll(A('T08', 'cena') - 0.1, A('T08', 'agora') - 0.1, 'mk_49326')
 over(A('T08', 'cena'), E('T08'), 'shade', side='left')
 over(A('T08', 'cena'), E('T08'), 'stack', x=110, y=380, size=60, items=[{'at': A('T08', 'cena'), 'text': 'A cena que era cortada'}, {'at': A('T08', 'agora'), 'text': 'agora entra.', 'accent': True}])
 card(A('T09a1', 'netflix') - 0.1, E('T09a1'), 'stat', kicker='NETFLIX COMPRA A INTERPOSITIVE · MAR 2026', big='US$ 587 MI', line='a empresa de IA do Ben Affleck', hit=A('T09a1', 'quinhentos'), src='FONTE: FORBES · INC. · 2026')
 over(A('T09a2', 'virou'), E('T09a2'), 'stack', x=96, y=880, size=34, items=[{'at': A('T09a2', 'virou'), 'text': 'BEN AFFLECK → CONSELHEIRO DE IA DA NETFLIX'}])
+broll(A('T09b', 'filme') - 0.1, E('T09b'), 'mk_25478')
 over(A('T09b', 'animals'), E('T09b'), 'stamp', text='"Animals" · 9 out', x=110, y=690, size=78, rot=-5, color='orange')
 card(A('T10', 'comparou') - 0.1, E('T10'), 'quote', kicker='BEN AFFLECK · BLOOMBERG SCREENTIME', text='Comparou contar onde usou IA a um mágico que revela o truque antes do show.', who='Críticos apontam IA no plano; não há confirmação. Rotten Tomatoes: ~35% (out 2026).', src='FONTE: WORLD OF REEL (1 OUT) · FORBES (7 OUT) · IOL (16 OUT 2026)', marks=False)
 over(A('T11', 'perdoa') - 0.3, A('T11', 'amplifica') - 0.1, 'slam', y=600, size=200, items=[{'at': A('T11', 'perdoa') - 0.3, 'light': 'A IA NÃO PERDOA', 'heavy': 'PLANO PREGUIÇOSO'}])
@@ -152,7 +154,8 @@ card(A('T26b', 'maxton') - 0.3, E('T26b'), 'pipeline', kicker='PRIME VIDEO · MA
      nodes=[{'at': A('T26b', 'maxton'), 'label': 'ATOR', 'sub': 'filmagem original'}, {'at': A('T26b', 'voz'), 'label': 'VOZ', 'sub': 'dublador humano'}, {'at': A('T26b', 'imagem'), 'label': 'LÁBIOS', 'sub': 'ajustados por IA'}],
      foot='A voz continua humana. A boca, não.')
 over(A('T27', 'portugues'), E('T27'), 'stamp', text='Português? Ainda sem anúncio', x=110, y=690, size=78, rot=-5, color='orange')
-broll(A('T28a', 'michael') - 0.2, E('T28a'), 'n209')
+broll(A('T28a', 'michael') - 0.2, A('T28a', 'odisseia') - 0.1, 'n209')
+broll(A('T28a', 'odisseia') - 0.1, E('T28a'), 'mk_2850')
 over(A('T28a', 'odisseia'), E('T28a'), 'stack', x=110, y=840, size=40, items=[{'at': A('T28a', 'odisseia'), 'text': 'MICHAEL CAINE × ELEVENLABS · AUDIOLIVRO DE 13 H', 'accent': True}])
 card(S('T28b'), E('T28b'), 'stat', kicker='ELEVENLABS · MERCADO DE VOZES', big='US$ 22 MI', line='pagos a mais de 10 mil criadores de voz', hit=A('T28b', 'vinte'), src='FONTE: LA TIMES · 30 AGO 2026')
 card(A('T29', 'kilmer') - 0.4, E('T29'), 'quote', kicker='VAL KILMER · AS DEEP AS THE GRAVE', text='Recriado por IA, com autorização e pagamento ao espólio.', who='Segundo a filha, Mercedes Kilmer', src='FONTE: LIVENOW FOX · 2026', marks=False)
@@ -186,15 +189,17 @@ card(S('T39b'), E('T39b'), 'list', kicker='O DINHEIRO NAS FERRAMENTAS', src='FON
 card(A('T40', 'plano') - 0.2, E('T40'), 'pipeline', kicker='COMO UM PLANO É FEITO HOJE', src='',
      nodes=[{'at': A('T40', 'plano'), 'label': 'IMAGEM', 'sub': 'Nano Banana · Seedream'}, {'at': A('T40', 'passa'), 'label': 'VÍDEO', 'sub': 'Seedance · Kling · Veo'}, {'at': A('T40', 'tres'), 'label': 'VOZ', 'sub': 'ElevenLabs'}, {'at': A('T40', 'tela'), 'label': 'EDIÇÃO', 'sub': 'direção humana'}],
      foot='3 a 4 modelos por plano.')
-broll(S('T41a'), E('T41a'), 'n214')
+broll(S('T41a'), A('T41a', 'disney') - 0.1, 'n214')
+broll(A('T41a', 'disney') - 0.1, E('T41a'), 'mk_46117')
 over(A('T41a', 'disney'), E('T41a'), 'stamp', text='Estúdios × Midjourney', x=980, y=320, size=78, rot=-5)
 card(A('T41b', 'seis') - 0.3, E('T41b'), 'timeline', kicker='DISNEY, UNIVERSAL E WARNER × MIDJOURNEY', src='FONTE: AI LAWSUIT TRACKER · 19 OUT 2026',
      steps=[{'at': A('T41b', 'seis'), 'label': '6 OUT', 'sub': 'entrega dos dados de treino'}, {'at': A('T41b', 'pericia'), 'label': '9 NOV', 'sub': 'fim da fase pericial'}, {'at': A('T41b', 'julgamento'), 'label': '?', 'sub': 'sem data de julgamento'}])
+broll(S('T42'), A('T42', 'justo') - 0.3, 'mk_47686')
 over(A('T42', 'justo') - 0.2, E('T42') + 0.1, 'slam', y=600, size=230, items=[{'at': A('T42', 'justo') - 0.2, 'light': 'TREINAR COM FILMES É', 'heavy': 'USO JUSTO?'}])
 
 # ---------------- 06 PÚBLICO ----------------
 chapter('06', 'O público e onde a IA falha', 'T431')
-broll(A('T431', 'pesquisa') - 0.2, E('T431'), 'n216')
+broll(A('T431', 'pesquisa') - 0.2, E('T431'), 'mk_33312')
 card(S('T432'), E('T432'), 'bars', kicker='ANGUS REID USA · JUN 2026 · 2.007 ADULTOS', title='Você assistiria a um filme 100% feito por IA?', src='FONTE: ANGUS REID USA · 10 JUL 2026',
      bars=[{'at': A('T432', 'trinta'), 'label': 'Sim', 'value': 39}, {'at': A('T432', 'cinquenta'), 'label': 'Não', 'value': 50, 'color': 'red'}])
 card(A('T44', 'jovens') - 0.2, E('T44'), 'bars', kicker='DISPOSTOS A ASSISTIR, POR IDADE', title='Os mais jovens são os mais resistentes.', src='FONTE: ANGUS REID USA · 10 JUL 2026',
