@@ -21,7 +21,7 @@ Neste episódio do SILASTEC CAST:
 - no fim, o tutorial completo para você aparecer em qualquer lugar do mundo.
 
 Guia grátis em PDF com as ferramentas, os preços e as fontes deste episódio:
-https://d2ol7oe51mr4n9.cloudfront.net/user_376XPpNiKYP0wVBJ1xS3f4v7M2A/21fe2dd1-3758-46b6-9886-2d8d6530c3f5.pdf
+https://d2ol7oe51mr4n9.cloudfront.net/user_376XPpNiKYP0wVBJ1xS3f4v7M2A/80827f10-149b-412a-a1e4-9612704d1c16.pdf
 
 Guia do método do tutorial (PDF):
 https://d2ol7oe51mr4n9.cloudfront.net/user_376XPpNiKYP0wVBJ1xS3f4v7M2A/f1a8df82-2b6e-4c8d-b25d-54d465d8430e.pdf
@@ -38,7 +38,7 @@ Capítulos
 12:21 Tutorial: você em qualquer lugar do mundo
 15:15 Encerramento
 
-Sobre este vídeo: o apresentador é uma versão digital do Silas, gerada com IA a partir de fotos e da voz dele, com o consentimento dele. Estúdio, câmeras, voz, planos de apoio e grafismos foram produzidos com IA e código pela FULGORTEC.
+Sobre este vídeo: o apresentador é uma versão digital do Silas, gerada com IA a partir de fotos e da voz dele, com o consentimento dele. Estúdio, câmeras, voz, planos de apoio e grafismos foram produzidos com IA e código pela FULGORTEC. Alguns planos de apoio são imagens reais de banco gratuito (Mixkit).
 
 Fontes
 - Netflix, ~300 títulos com IA: carta aos investidores do 2.º trimestre (16 jul. 2026); Fortune (16 jul. 2026)
@@ -81,3 +81,10 @@ Qual ferramenta vocês querem que eu teste a fundo no próximo episódio: Seedan
 - Vídeo: caixa pequena "Mais do canal" (o episódio anterior sobre IA no cinema).
 - Inscrever: círculo à direita, em baixo.
 - A caixa da esquerda já mostra o apresentador; não pôr elementos do YouTube por cima dela.
+
+## Ficheiros de entrega
+- Vídeo final (1920x1080, 30 fps, 15:49, -13,9 LUFS, pico -1,0 dBTP): https://d2ol7oe51mr4n9.cloudfront.net/user_376XPpNiKYP0wVBJ1xS3f4v7M2A/2f218946-0687-4196-891f-f2797f0bcf4a.mp4
+- Miniatura A: https://d2ol7oe51mr4n9.cloudfront.net/user_376XPpNiKYP0wVBJ1xS3f4v7M2A/af89b962-3c58-48d7-9c35-d6017540c316.jpg
+- Miniatura B: https://d2ol7oe51mr4n9.cloudfront.net/user_376XPpNiKYP0wVBJ1xS3f4v7M2A/b8832a2b-17cb-4f73-ad0e-0872a31bcca8.jpg
+- Legendas pt-BR (formato SRT; renomear a extensão para .srt antes de carregar no YouTube): https://d2ol7oe51mr4n9.cloudfront.net/user_376XPpNiKYP0wVBJ1xS3f4v7M2A/c2adec33-7470-4abf-ae7f-b2cc96faf397.txt
+- Guia PDF do episódio: https://d2ol7oe51mr4n9.cloudfront.net/user_376XPpNiKYP0wVBJ1xS3f4v7M2A/80827f10-149b-412a-a1e4-9612704d1c16.pdf

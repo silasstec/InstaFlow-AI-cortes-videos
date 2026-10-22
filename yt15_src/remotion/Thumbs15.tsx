@@ -10,7 +10,7 @@ export const Thumb15A: React.FC = () => (
     <Fonts />
     <AbsoluteFill style={{background: 'linear-gradient(270deg, rgba(5,5,8,0.92) 0%, rgba(5,5,8,0.55) 34%, rgba(5,5,8,0) 55%)'}} />
     <div style={{position: 'absolute', right: 44, top: 70, textAlign: 'right'}}>
-      <div style={{display: 'inline-block', background: K.white, color: '#0a0a0b', fontFamily: SANS, fontWeight: 800, fontSize: 40, padding: '6px 18px', borderRadius: 8, transform: 'rotate(-2deg)', marginBottom: 10}}>1º FILME</div>
+      <div style={{display: 'inline-block', background: K.white, color: '#0a0a0b', fontFamily: SANS, fontWeight: 800, fontSize: 40, padding: '6px 18px', borderRadius: 8, transform: 'rotate(-2deg)', marginBottom: 10}}>FILME</div>
       <div style={{fontFamily: DISPLAY, fontSize: 196, lineHeight: 0.86, color: K.orange, letterSpacing: '-0.02em', textShadow: stroke, WebkitTextStroke: '3px #0a0a0b'}}>100% IA</div>
       <div style={{fontFamily: DISPLAY, fontSize: 92, lineHeight: 0.95, color: K.white, textShadow: stroke}}>NO OSCAR?</div>
       <div style={{marginTop: 26, display: 'inline-block', background: K.orange, color: '#0a0a0b', fontFamily: SANS, fontWeight: 800, fontSize: 30, padding: '6px 16px', borderRadius: 8}}>+ TUTORIAL NO FINAL</div>
