@@ -1,0 +1,520 @@
+[
+ {
+  "id": "T01a",
+  "cam": "C",
+  "text": "Semana passada a Netflix lançou um filme do Ben Affleck. E um plano de menos de um segundo virou o meme da semana: uma criança atirada de um trailer que cai, perfeitamente, nos braços dele.",
+  "tts": "Semana passada a Netflix lançou um filme do Ben Affleck. E um plano de menos de um segundo virou o meme da semana: uma criança atirada de um trailer que cai, perfeitamente, nos braços dele.",
+  "est_s": 13.0
+ },
+ {
+  "id": "T01b",
+  "cam": "B",
+  "text": "A internet inteira apontou: isso é IA.",
+  "tts": "A internet inteira apontou: isso é I.A.",
+  "est_s": 3.0
+ },
+ {
+  "id": "T02",
+  "cam": "B",
+  "text": "Em dezembro, um filme feito cem por cento com inteligência artificial estreia nos cinemas dos Estados Unidos ... e a produtora quer inscrevê-lo no Oscar.",
+  "tts": "Em dezembro, um filme feito cem por cento com inteligência artificial estreia nos cinemas dos Estados Unidos ... e a produtora quer inscrevê-lo no Oscar.",
+  "est_s": 9.3
+ },
+ {
+  "id": "T03",
+  "cam": "A",
+  "text": "E aqui no Brasil, a Globo colocou no ar o Marcos Mion transformado em Tom Cruise por inteligência artificial ... e apagou tudo no dia seguinte, depois de uma notificação vinda de Hollywood.",
+  "tts": "E aqui no Brasil, a Globo colocou no ar o Marcos Mion transformado em Tom Cruise por inteligência artificial ... e apagou tudo no dia seguinte, depois de uma notificação vinda de Hollywood.",
+  "est_s": 12.2
+ },
+ {
+  "id": "T04a",
+  "cam": "B",
+  "text": "Hoje eu vou te mostrar o que está acontecendo de verdade com a IA no cinema:",
+  "tts": "Hoje eu vou te mostrar o que está acontecendo de verdade com a I.A. no cinema:",
+  "est_s": 5.9
+ },
+ {
+  "id": "T04b",
+  "cam": "C",
+  "text": "quem já usa, quem está dizendo não, a regra nova do Oscar, a guerra das ferramentas ... e o que isso muda para você que cria conteúdo.",
+  "tts": "quem já usa, quem está dizendo não, a regra nova do Oscar, a guerra das ferramentas ... e o que isso muda para você que cria conteúdo.",
+  "est_s": 10.0
+ },
+ {
+  "id": "T05",
+  "cam": "C",
+  "text": "E no final, o tutorial completo, passo a passo, para colocar você em qualquer lugar do mundo num vídeo ultra-realista. Fica até o fim, porque essa parte vale o vídeo inteiro.",
+  "tts": "E no final, o tutorial completo, passo a passo, para colocar você em qualquer lugar do mundo num vídeo ultra-realista. Fica até o fim, porque essa parte vale o vídeo inteiro.",
+  "est_s": 11.5
+ },
+ {
+  "id": "T06",
+  "cam": "B",
+  "text": "Vamos começar pelo maior streaming do planeta. Em julho, na apresentação de resultados, o co-CEO da Netflix, Ted Sarandos, contou que a empresa usou IA generativa em cerca de trezentos filmes e séries só em 2026.",
+  "tts": "Vamos começar pelo maior streaming do planeta. Em julho, na apresentação de resultados, o co-CEO da Netflix, Ted Sarandos, contou que a empresa usou I.A. generativa em cerca de trezentos filmes e séries só em 2026.",
+  "est_s": 13.3
+ },
+ {
+  "id": "T07",
+  "cam": "D",
+  "text": "E não é marketing. É pós-produção: multidões, batalhas históricas, planos de abertura, pré-visualização. Num documentário, The American Experiment, dezessete minutos de imagens foram feitos assim, na metade do tempo e pela metade do custo.",
+  "tts": "E não é marketing. É pós-produção: multidões, batalhas históricas, planos de abertura, pré-visualização. Num documentário, The American Experiment, dezessete minutos de imagens foram feitos assim, na metade do tempo e pela metade do custo.",
+  "est_s": 12.6
+ },
+ {
+  "id": "T08",
+  "cam": "C",
+  "text": "E repara no que isso significa: a cena que antes era cortada do roteiro porque não cabia no orçamento ... agora entra.",
+  "tts": "E repara no que isso significa: a cena que antes era cortada do roteiro porque não cabia no orçamento ... agora entra.",
+  "est_s": 8.1
+ },
+ {
+  "id": "T09a",
+  "cam": "A",
+  "text": "Agora, o caso Affleck. Em março, a Netflix comprou a empresa de IA dele, a InterPositive, por cerca de quinhentos e oitenta e sete milhões de dólares. Ele virou conselheiro da Netflix para inteligência artificial.",
+  "tts": "Agora, o caso Affleck. Em março, a Netflix comprou a empresa de I.A. dele, a InterPositive, por cerca de quinhentos e oitenta e sete milhões de dólares. Ele virou conselheiro da Netflix para inteligência artificial.",
+  "est_s": 13.0
+ },
+ {
+  "id": "T09b",
+  "cam": "B",
+  "text": "E o filme Animals estreou no dia nove de outubro.",
+  "tts": "E o filme Animals estreou no dia nove de outubro.",
+  "est_s": 3.7
+ },
+ {
+  "id": "T10",
+  "cam": "B",
+  "text": "O Affleck admitiu que usou IA \"em muitas coisas\", principalmente na pós-produção. Mas não disse onde. Comparou a um mágico que não revela o truque. E o público achou o truque sozinho.",
+  "tts": "O Affleck admitiu que usou I.A. \"em muitas coisas\", principalmente na pós-produção. Mas não disse onde. Comparou a um mágico que não revela o truque. E o público achou o truque sozinho.",
+  "est_s": 11.9
+ },
+ {
+  "id": "T11",
+  "cam": "C",
+  "text": "Guarda isto: o maior defensor da IA em Hollywood entregou a cena mais criticada do mês. A IA não perdoa plano preguiçoso. Ela amplifica o que você faz, para o bem e para o mal.",
+  "tts": "Guarda isto: o maior defensor da I.A. em Hollywood entregou a cena mais criticada do mês. A I.A. não perdoa plano preguiçoso. Ela amplifica o que você faz, para o bem e para o mal.",
+  "est_s": 13.0
+ },
+ {
+  "id": "T12a",
+  "cam": "D",
+  "text": "E a Disney, que tinha saído do acordo com a OpenAI, não recuou.",
+  "tts": "E a Disney, que tinha saído do acordo com a OpenAI, não recuou.",
+  "est_s": 4.8
+ },
+ {
+  "id": "T12b",
+  "cam": "B",
+  "text": "Em outubro criou pela primeira vez o cargo de diretor de tecnologia e contratou o ex-CEO da Character.ai para cuidar das plataformas de IA. A frase da casa é:",
+  "tts": "Em outubro criou pela primeira vez o cargo de diretor de tecnologia e contratou o ex-CEO da Character.ai para cuidar das plataformas de I.A. A frase da casa é:",
+  "est_s": 10.7
+ },
+ {
+  "id": "T12c",
+  "cam": "C",
+  "text": "\"amplifica o que os nossos contadores de histórias fazem, não os substitui\".",
+  "tts": "\"amplifica o que os nossos contadores de histórias fazem, não os substitui\".",
+  "est_s": 4.4
+ },
+ {
+  "id": "T13a",
+  "cam": "A",
+  "text": "Agora volta naquele filme do começo. Ele se chama Gods Don't Give Gifts. Foi criado por um youtuber, o Gossip Goblin, e produzido pela Fable, uma empresa de inteligência artificial.",
+  "tts": "Agora volta naquele filme do começo. Ele se chama Gods Don't Give Gifts. Foi criado por um youtuber, o Gossip Goblin, e produzido pela Fable, uma empresa de inteligência artificial.",
+  "est_s": 11.1
+ },
+ {
+  "id": "T13b",
+  "cam": "B",
+  "text": "São quatro histórias num planeta onde o corpo é descartável e a consciência virou mercadoria.",
+  "tts": "São quatro histórias num planeta onde o corpo é descartável e a consciência virou mercadoria.",
+  "est_s": 5.6
+ },
+ {
+  "id": "T14",
+  "cam": "B",
+  "text": "Era para estrear no fim de outubro. Adiaram para quatro de dezembro. O motivo? Ficar mais perto da temporada do Oscar. Eles querem disputar melhor animação.",
+  "tts": "Era para estrear no fim de outubro. Adiaram para quatro de dezembro. O motivo? Ficar mais perto da temporada do Oscar. Eles querem disputar melhor animação.",
+  "est_s": 9.6
+ },
+ {
+  "id": "T15",
+  "cam": "C",
+  "text": "Só que tem um detalhe que quase ninguém está comentando. Em maio, a Academia mudou as regras.",
+  "tts": "Só que tem um detalhe que quase ninguém está comentando. Em maio, a Academia mudou as regras.",
+  "est_s": 6.3
+ },
+ {
+  "id": "T16",
+  "cam": "B",
+  "text": "Para o Oscar de 2027, só vale atuação creditada e comprovadamente feita por humanos, com consentimento. Roteiro tem que ser de autoria humana. E a Academia pode pedir informações sobre onde a IA foi usada.",
+  "tts": "Para o Oscar de 2027, só vale atuação creditada e comprovadamente feita por humanos, com consentimento. Roteiro tem que ser de autoria humana. E a Academia pode pedir informações sobre onde a I.A. foi usada.",
+  "est_s": 13.0
+ },
+ {
+  "id": "T17",
+  "cam": "A",
+  "text": "Do outro lado, o Globo de Ouro foi na direção contrária: IA não desqualifica, desde que a direção criativa, o julgamento artístico e a autoria continuem humanos. As inscrições fecham dia trinta de outubro. Ou seja: semana que vem.",
+  "tts": "Do outro lado, o Globo de Ouro foi na direção contrária: I.A. não desqualifica, desde que a direção criativa, o julgamento artístico e a autoria continuem humanos. As inscrições fecham dia trinta de outubro. Ou seja: semana que vem.",
+  "est_s": 14.4
+ },
+ {
+  "id": "T18a",
+  "cam": "D",
+  "text": "E tem o caso contrário: Critterz, a animação que ia ser \"a Pixar da OpenAI\". Orçamento abaixo de trinta milhões, quinze pessoas, nove meses. Ia estrear em Cannes.",
+  "tts": "E tem o caso contrário: Critterz, a animação que ia ser \"a Pixar da OpenAI\". Orçamento abaixo de trinta milhões, quinze pessoas, nove meses. Ia estrear em Cannes.",
+  "est_s": 10.4
+ },
+ {
+  "id": "T18b",
+  "cam": "B",
+  "text": "Quando a OpenAI desligou o Sora, em março, o filme perdeu Cannes e a OpenAI disse que não era nem financiadora nem produtora.",
+  "tts": "Quando a OpenAI desligou o Sora, em março, o filme perdeu Cannes e a OpenAI disse que não era nem financiadora nem produtora.",
+  "est_s": 8.5
+ },
+ {
+  "id": "T19",
+  "cam": "C",
+  "text": "A produtora refez tudo com outra estrutura e agora mira 2027. A lição é simples: depender de um único modelo é risco de produção. Quem produz com IA tem que ter plano B no dia um.",
+  "tts": "A produtora refez tudo com outra estrutura e agora mira 2027. A lição é simples: depender de um único modelo é risco de produção. Quem produz com I.A. tem que ter plano B no dia um.",
+  "est_s": 13.3
+ },
+ {
+  "id": "T20a",
+  "cam": "B",
+  "text": "E aí entra a parte que divide Hollywood ao meio: atores digitais. A Tilly Norwood é uma \"atriz\" criada pela Particle6.",
+  "tts": "E aí entra a parte que divide Hollywood ao meio: atores digitais. A Tilly Norwood é uma \"atriz\" criada pela Particle6.",
+  "est_s": 7.8
+ },
+ {
+  "id": "T20b",
+  "cam": "C",
+  "text": "Em setembro, foi entrevistada pelo Piers Morgan e, no meio da resposta, travou e começou a falar cantonês. O vídeo passou de catorze milhões de visualizações.",
+  "tts": "Em setembro, foi entrevistada pelo Piers Morgan e, no meio da resposta, travou e começou a falar cantonês. O vídeo passou de catorze milhões de visualizações.",
+  "est_s": 9.6
+ },
+ {
+  "id": "T21",
+  "cam": "D",
+  "text": "O sindicato dos atores foi direto: ela é um personagem gerado por um programa treinado no trabalho de inúmeros atores de verdade.",
+  "tts": "O sindicato dos atores foi direto: ela é um personagem gerado por um programa treinado no trabalho de inúmeros atores de verdade.",
+  "est_s": 8.1
+ },
+ {
+  "id": "T22a",
+  "cam": "A",
+  "text": "Do outro lado da mesa, Mark Wahlberg. No palco do TechCrunch Disrupt, ele disse que não se opõe a uma versão de IA dele continuando a série Ted por décadas.",
+  "tts": "Do outro lado da mesa, Mark Wahlberg. No palco do TechCrunch Disrupt, ele disse que não se opõe a uma versão de I.A. dele continuando a série Ted por décadas.",
+  "est_s": 11.1
+ },
+ {
+  "id": "T22b",
+  "cam": "B",
+  "text": "E que seria legal os filhos e os netos cuidarem da imagem dele.",
+  "tts": "E que seria legal os filhos e os netos cuidarem da imagem dele.",
+  "est_s": 4.8
+ },
+ {
+  "id": "T23a",
+  "cam": "C",
+  "text": "E o Nicolas Cage disse exatamente o contrário. Na Comic Con de Nova York, dia dez de outubro:",
+  "tts": "E o Nicolas Cage disse exatamente o contrário. Na Comic Con de Nova York, dia dez de outubro:",
+  "est_s": 6.7
+ },
+ {
+  "id": "T23b",
+  "cam": "B",
+  "text": "\"Não assinei o waiver para eles usarem IA em Spider-Noir.\" \"Não sou um ator amigável à IA.\" E completou: provavelmente não vai mais trabalhar com esse estúdio.",
+  "tts": "\"Não assinei o waiver para eles usarem I.A. em Spider-Noir.\" \"Não sou um ator amigável à I.A.\" E completou: provavelmente não vai mais trabalhar com esse estúdio.",
+  "est_s": 10.0
+ },
+ {
+  "id": "T24",
+  "cam": "B",
+  "text": "Contexto: a Amazon cancelou Spider-Noir em setembro, depois de uma temporada, poucos dias antes de a série receber onze indicações ao Emmy.",
+  "tts": "Contexto: a Amazon cancelou Spider-Noir em setembro, depois de uma temporada, poucos dias antes de a série receber onze indicações ao Emmy.",
+  "est_s": 8.1
+ },
+ {
+  "id": "T25",
+  "cam": "D",
+  "text": "O contrato do sindicato exige consentimento para clone digital. E os astros já estão usando esse direito nos dois sentidos: um assina, outro recusa.",
+  "tts": "O contrato do sindicato exige consentimento para clone digital. E os astros já estão usando esse direito nos dois sentidos: um assina, outro recusa.",
+  "est_s": 8.9
+ },
+ {
+  "id": "T26a",
+  "cam": "A",
+  "text": "Agora um caso que mexe direto com o Brasil. Em setembro, o Prime Video começou a usar IA para mexer na boca dos atores em séries dubladas.",
+  "tts": "Agora um caso que mexe direto com o Brasil. Em setembro, o Prime Video começou a usar I.A. para mexer na boca dos atores em séries dubladas.",
+  "est_s": 10.0
+ },
+ {
+  "id": "T26b",
+  "cam": "B",
+  "text": "Começou pela série alemã Maxton Hall, dublada em inglês: a voz continua sendo de dublador humano, mas a imagem é alterada para os lábios baterem com a fala.",
+  "tts": "Começou pela série alemã Maxton Hall, dublada em inglês: a voz continua sendo de dublador humano, mas a imagem é alterada para os lábios baterem com a fala.",
+  "est_s": 10.4
+ },
+ {
+  "id": "T27",
+  "cam": "C",
+  "text": "O Brasil é um dos maiores mercados de dublagem do mundo. O próximo passo óbvio é o português. E isso muda a vida de quem assiste e de quem dubla.",
+  "tts": "O Brasil é um dos maiores mercados de dublagem do mundo. O próximo passo óbvio é o português. E isso muda a vida de quem assiste e de quem dubla.",
+  "est_s": 11.1
+ },
+ {
+  "id": "T28a",
+  "cam": "B",
+  "text": "E as vozes. Michael Caine licenciou a voz dele para a ElevenLabs e narrou um audiolivro da Odisseia, treze horas, sem gravar uma frase nova.",
+  "tts": "E as vozes. Michael Caine licenciou a voz dele para a ElevenLabs e narrou um audiolivro da Odisseia, treze horas, sem gravar uma frase nova.",
+  "est_s": 9.3
+ },
+ {
+  "id": "T28b",
+  "cam": "C",
+  "text": "A empresa diz ter pago vinte e dois milhões de dólares a mais de dez mil criadores de voz.",
+  "tts": "A empresa diz ter pago vinte e dois milhões de dólares a mais de dez mil criadores de voz.",
+  "est_s": 7.0
+ },
+ {
+  "id": "T29",
+  "cam": "D",
+  "text": "E Val Kilmer, que morreu em 2025, foi recriado por IA num filme novo, com autorização e pagamento ao espólio, segundo a filha dele.",
+  "tts": "E Val Kilmer, que morreu em 2025, foi recriado por I.A. num filme novo, com autorização e pagamento ao espólio, segundo a filha dele.",
+  "est_s": 8.9
+ },
+ {
+  "id": "T30",
+  "cam": "C",
+  "text": "A pergunta não é mais se a voz pode ser clonada. Pode. A pergunta é quem assina ... e quem recebe.",
+  "tts": "A pergunta não é mais se a voz pode ser clonada. Pode. A pergunta é quem assina ... e quem recebe.",
+  "est_s": 7.8
+ },
+ {
+  "id": "T31",
+  "cam": "B",
+  "text": "E aqui? No dia dois de setembro, a Globo exibiu uma chamada em que o Marcos Mion virava Tom Cruise, o Luciano Huck virava o Hulk e a Ana Maria Braga contracenava com o Rocket. Tudo gerado por IA.",
+  "tts": "E aqui? No dia dois de setembro, a Globo exibiu uma chamada em que o Marcos Mion virava Tom Cruise, o Luciano Huck virava o Hulk e a Ana Maria Braga contracenava com o Rocket. Tudo gerado por I.A.",
+  "est_s": 14.4
+ },
+ {
+  "id": "T32",
+  "cam": "A",
+  "text": "Segundo a coluna Canal D, do jornal O Dia, um estúdio de Hollywood mandou notificação extrajudicial por uso não autorizado. A peça sumiu no dia seguinte. A Globo não se pronunciou.",
+  "tts": "Segundo a coluna Canal D, do jornal O Dia, um estúdio de Hollywood mandou notificação extrajudicial por uso não autorizado. A peça sumiu no dia seguinte. A Globo não se pronunciou.",
+  "est_s": 11.5
+ },
+ {
+  "id": "T33",
+  "cam": "D",
+  "text": "E, um mês depois, a mesma Globo anunciou que vai lançar microdramas verticais \"nativos em IA\" no primeiro trimestre de 2027. Ou seja: o erro foi de direitos, não de tecnologia.",
+  "tts": "E, um mês depois, a mesma Globo anunciou que vai lançar microdramas verticais \"nativos em I.A.\" no primeiro trimestre de 2027. Ou seja: o erro foi de direitos, não de tecnologia.",
+  "est_s": 11.5
+ },
+ {
+  "id": "T34a",
+  "cam": "B",
+  "text": "A lei está vindo. O Marco da IA, o PL 2338, deve ser votado na Câmara no fim deste ano, depois do segundo turno. O ponto que trava é exatamente direitos autorais.",
+  "tts": "A lei está vindo. O Marco da I.A., o PL 2338, deve ser votado na Câmara no fim deste ano, depois do segundo turno. O ponto que trava é exatamente direitos autorais.",
+  "est_s": 11.9
+ },
+ {
+  "id": "T34b",
+  "cam": "C",
+  "text": "E na Europa já vale: desde dois de agosto, vídeo e áudio gerados que pareçam reais têm que vir com rótulo visível e marca legível por máquina.",
+  "tts": "E na Europa já vale: desde dois de agosto, vídeo e áudio gerados que pareçam reais têm que vir com rótulo visível e marca legível por máquina.",
+  "est_s": 10.0
+ },
+ {
+  "id": "T34c",
+  "cam": "B",
+  "text": "Multa de até quinze milhões de euros ou três por cento do faturamento global.",
+  "tts": "Multa de até quinze milhões de euros ou três por cento do faturamento global.",
+  "est_s": 5.2
+ },
+ {
+  "id": "T35",
+  "cam": "C",
+  "text": "Se você exporta vídeo para a Europa, já está dentro dessa regra. E quem produz com transparência desde já sai na frente quando a regra chegar aqui.",
+  "tts": "Se você exporta vídeo para a Europa, já está dentro dessa regra. E quem produz com transparência desde já sai na frente quando a regra chegar aqui.",
+  "est_s": 10.0
+ },
+ {
+  "id": "T36a",
+  "cam": "A",
+  "text": "Por trás de tudo isso tem uma guerra de ferramentas em tempo real. A primeira baixa foi um gigante:",
+  "tts": "Por trás de tudo isso tem uma guerra de ferramentas em tempo real. A primeira baixa foi um gigante:",
+  "est_s": 7.0
+ },
+ {
+  "id": "T36b",
+  "cam": "B",
+  "text": "em março, a OpenAI desligou o Sora, menos de seis meses depois de ele chegar ao topo da App Store. E a Disney saiu do acordo bilionário que tinha com eles.",
+  "tts": "em março, a OpenAI desligou o Sora, menos de seis meses depois de ele chegar ao topo da App Store. E a Disney saiu do acordo bilionário que tinha com eles.",
+  "est_s": 11.5
+ },
+ {
+  "id": "T37a",
+  "cam": "B",
+  "text": "E o mercado nem piscou. Em julho, a ByteDance lançou o Seedance 2.5: trinta segundos contínuos com som, um modo longo de até três minutos, a partir de dez centavos de dólar por segundo.",
+  "tts": "E o mercado nem piscou. Em julho, a ByteDance lançou o Seedance 2.5: trinta segundos contínuos com som, um modo longo de até três minutos, a partir de dez centavos de dólar por segundo.",
+  "est_s": 12.6
+ },
+ {
+  "id": "T37b",
+  "cam": "C",
+  "text": "Em agosto, já estava dentro do Runway.",
+  "tts": "Em agosto, já estava dentro do Runway.",
+  "est_s": 2.6
+ },
+ {
+  "id": "T38a",
+  "cam": "D",
+  "text": "O Google trocou o nome do jogo: Gemini Omni. A versão 1.1 Flash gera até quarenta segundos, em 1080p ou 4K, e desde setembro está de graça dentro do Google Vids.",
+  "tts": "O Google trocou o nome do jogo: Gemini Omni. A versão 1.1 Flash gera até quarenta segundos, em 1080p ou 4K, e desde setembro está de graça dentro do Google Vids.",
+  "est_s": 11.5
+ },
+ {
+  "id": "T38b",
+  "cam": "B",
+  "text": "E hoje, dia vinte e dois, o Google desliga as versões de teste do Veo 3.1.",
+  "tts": "E hoje, dia vinte e dois, o Google desliga as versões de teste do Veo 3.1.",
+  "est_s": 5.9
+ },
+ {
+  "id": "T39a",
+  "cam": "B",
+  "text": "O dinheiro mostra quem está na frente. A Kuaishou, dona do Kling, levantou uma rodada de cerca de três bilhões de dólares com Baidu, Alibaba e Tencent.",
+  "tts": "O dinheiro mostra quem está na frente. A Kuaishou, dona do Kling, levantou uma rodada de cerca de três bilhões de dólares com Baidu, Alibaba e Tencent.",
+  "est_s": 10.0
+ },
+ {
+  "id": "T39b",
+  "cam": "C",
+  "text": "A Runway colocou plugins dentro do Premiere, do After Effects e do DaVinci, e a Lionsgate virou sócia. E a Higgsfield captou quatrocentos milhões avaliada em cinco bilhões e quatrocentos.",
+  "tts": "A Runway colocou plugins dentro do Premiere, do After Effects e do DaVinci, e a Lionsgate virou sócia. E a Higgsfield captou quatrocentos milhões avaliada em cinco bilhões e quatrocentos.",
+  "est_s": 11.1
+ },
+ {
+  "id": "T40",
+  "cam": "C",
+  "text": "O segredo não é escolher a melhor ferramenta. É saber combinar. Um plano de cinema hoje passa por três, quatro modelos diferentes antes de chegar na tela.",
+  "tts": "O segredo não é escolher a melhor ferramenta. É saber combinar. Um plano de cinema hoje passa por três, quatro modelos diferentes antes de chegar na tela.",
+  "est_s": 10.0
+ },
+ {
+  "id": "T41a",
+  "cam": "A",
+  "text": "E tem um processo que pode mudar tudo isso. Disney, Universal e Warner contra a Midjourney.",
+  "tts": "E tem um processo que pode mudar tudo isso. Disney, Universal e Warner contra a Midjourney.",
+  "est_s": 5.9
+ },
+ {
+  "id": "T41b",
+  "cam": "B",
+  "text": "No dia seis de outubro, a Midjourney concordou em entregar aos estúdios os dados de vídeo que usou para treinar. A perícia vem em novembro. Ainda não tem data de julgamento.",
+  "tts": "No dia seis de outubro, a Midjourney concordou em entregar aos estúdios os dados de vídeo que usou para treinar. A perícia vem em novembro. Ainda não tem data de julgamento.",
+  "est_s": 11.5
+ },
+ {
+  "id": "T42",
+  "cam": "D",
+  "text": "O desfecho decide se treinar modelo com filme é uso justo ou não. E isso afeta toda ferramenta que a gente usa, inclusive as que eu acabei de citar.",
+  "tts": "O desfecho decide se treinar modelo com filme é uso justo ou não. E isso afeta toda ferramenta que a gente usa, inclusive as que eu acabei de citar.",
+  "est_s": 10.7
+ },
+ {
+  "id": "T43",
+  "cam": "B",
+  "text": "E o público, aceita? Uma pesquisa americana de junho, com dois mil adultos, perguntou: você assistiria a um filme ou série feito inteiramente por IA? Trinta e nove por cento disseram sim. Cinquenta por cento disseram não.",
+  "tts": "E o público, aceita? Uma pesquisa americana de junho, com dois mil adultos, perguntou: você assistiria a um filme ou série feito inteiramente por I.A.? Trinta e nove por cento disseram sim. Cinquenta por cento disseram não.",
+  "est_s": 13.7
+ },
+ {
+  "id": "T44",
+  "cam": "C",
+  "text": "E o dado que surpreende: os jovens de dezoito a trinta e quatro anos são os mais resistentes. A geração Z não aceita tudo. Aceita o que é bom.",
+  "tts": "E o dado que surpreende: os jovens de dezoito a trinta e quatro anos são os mais resistentes. A geração Z não aceita tudo. Aceita o que é bom.",
+  "est_s": 10.7
+ },
+ {
+  "id": "T45",
+  "cam": "D",
+  "text": "E onde a IA ainda falha? Mãos, física, continuidade entre planos e texto dentro da imagem. Por isso os filmes grandes usam IA em multidão, cenário e pós ... e não num close de ator.",
+  "tts": "E onde a I.A. ainda falha? Mãos, física, continuidade entre planos e texto dentro da imagem. Por isso os filmes grandes usam I.A. em multidão, cenário e pós ... e não num close de ator.",
+  "est_s": 13.0
+ },
+ {
+  "id": "T46",
+  "cam": "B",
+  "text": "O que separa um vídeo de IA que convence de um que vira meme é exatamente isso: direção, revisão e saber o que não pedir para a máquina.",
+  "tts": "O que separa um vídeo de I.A. que convence de um que vira meme é exatamente isso: direção, revisão e saber o que não pedir para a máquina.",
+  "est_s": 10.4
+ },
+ {
+  "id": "T47",
+  "cam": "A",
+  "text": "E é aqui que fica interessante para você. Lembra: o primeiro filme feito com IA a chegar ao cinema não saiu de um estúdio. Saiu de um criador.",
+  "tts": "E é aqui que fica interessante para você. Lembra: o primeiro filme feito com I.A. a chegar ao cinema não saiu de um estúdio. Saiu de um criador.",
+  "est_s": 10.4
+ },
+ {
+  "id": "T48a",
+  "cam": "B",
+  "text": "Na FULGORTEC a gente usa exatamente esse fluxo todos os dias: videoclipe, trailer de filme, vídeo imobiliário com apresentador digital, publicidade.",
+  "tts": "Na FULGORTEC a gente usa exatamente esse fluxo todos os dias: videoclipe, trailer de filme, vídeo imobiliário com apresentador digital, publicidade.",
+  "est_s": 7.8
+ },
+ {
+  "id": "T48b",
+  "cam": "C",
+  "text": "Coisas que há dois anos exigiriam equipe, equipamento e semanas, hoje saem de um computador, em dias.",
+  "tts": "Coisas que há dois anos exigiriam equipe, equipamento e semanas, hoje saem de um computador, em dias.",
+  "est_s": 6.3
+ },
+ {
+  "id": "T49a",
+  "cam": "C",
+  "text": "Três passos para começar hoje. Um: comece pelo que você já tem. Uma voz, um rosto, um produto. Dois: junte três ferramentas, não trinta. Uma de imagem, uma de vídeo, uma de voz. Três:",
+  "tts": "Três passos para começar hoje. Um: comece pelo que você já tem. Uma voz, um rosto, um produto. Dois: junte três ferramentas, não trinta. Uma de imagem, uma de vídeo, uma de voz. Três:",
+  "est_s": 12.6
+ },
+ {
+  "id": "T49b",
+  "cam": "B",
+  "text": "publique com transparência. O rótulo de IA é obrigatório e não tira monetização.",
+  "tts": "publique com transparência. O rótulo de I.A. é obrigatório e não tira monetização.",
+  "est_s": 4.8
+ },
+ {
+  "id": "T50",
+  "cam": "D",
+  "text": "E o guia completo em PDF, com as ferramentas e os preços deste vídeo, está grátis na descrição.",
+  "tts": "E o guia completo em PDF, com as ferramentas e os preços deste vídeo, está grátis na descrição.",
+  "est_s": 6.7
+ },
+ {
+  "id": "T51",
+  "cam": "B",
+  "text": "Agora o passo a passo. Eu vou te mostrar como colocar você mesmo em qualquer lugar do mundo, com um vídeo ultra-realista, usando esse fluxo.",
+  "tts": "Agora o passo a passo. Eu vou te mostrar como colocar você mesmo em qualquer lugar do mundo, com um vídeo ultra-realista, usando esse fluxo.",
+  "est_s": 9.3
+ },
+ {
+  "id": "T52a",
+  "cam": "A",
+  "text": "Se este vídeo te ajudou a entender para onde o cinema está indo, deixa nos comentários: você assistiria a um filme cem por cento feito com IA?",
+  "tts": "Se este vídeo te ajudou a entender para onde o cinema está indo, deixa nos comentários: você assistiria a um filme cem por cento feito com I.A.?",
+  "est_s": 10.0
+ },
+ {
+  "id": "T52b",
+  "cam": "B",
+  "text": "Inscreve-se, porque no próximo episódio eu vou testar a fundo a ferramenta que vocês escolherem.",
+  "tts": "Inscreve-se, porque no próximo episódio eu vou testar a fundo a ferramenta que vocês escolherem.",
+  "est_s": 5.6
+ }
+]
