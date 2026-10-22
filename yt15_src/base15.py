@@ -103,7 +103,7 @@ def special():
         run(['ffmpeg', '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', lst, '-vf', f"fps=30,crop={c['s']}:{c['s']}:{c['x']}:{c['y']},scale=320:320:flags=lanczos,format=yuv420p", '-an', '-c:v', 'libx264', '-crf', '16', '-preset', 'veryfast', O + '/pip_sq.mp4'])
         P = 320; R = 18
         mask = f"format=yuva420p,geq=lum='p(X,Y)':cb='p(X,Y)':cr='p(X,Y)':a='if(gt(abs(X-{P}/2+0.5),{P}/2-{R})*gt(abs(Y-{P}/2+0.5),{P}/2-{R}),if(lte(hypot(abs(X-{P}/2+0.5)-({P}/2-{R}),abs(Y-{P}/2+0.5)-({P}/2-{R})),{R}),255,0),255)'"
-        fc = f"[0:v]fps=30,scale=1920:1080[t];[1:v]{mask}[p];[t][p]overlay=48:712:eof_action=pass,tpad=stop_mode=clone:stop_duration=2[v]"
+        fc = f"[0:v]fps=30,scale=1920:1080,drawbox=x=360:y=990:w=140:h=50:color=0x0a0a0b:t=fill[t];[1:v]{mask}[p];[t][p]overlay=48:712:eof_action=pass,tpad=stop_mode=clone:stop_duration=2[v]"
         run(['ffmpeg', '-v', 'error', '-y', '-i', '/home/user/tut/tutorial_silent.mp4', '-i', O + '/pip_sq.mp4', '-filter_complex', fc, '-map', '[v]', '-frames:v', str(N)] + ENC + [o])
     # end card: idle presenter inside the 800x450 box at (120,300)
     e = sp['end']; N = F(e['b']) - F(e['a'])
