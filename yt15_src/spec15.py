@@ -202,8 +202,8 @@ broll(A('T48a', 'imobiliario'), A('T48a', 'publicidade'), 'pf:sintra')
 broll(A('T48a', 'publicidade'), E('T48a'), 'b10')
 over(A('T48a', 'videoclipe'), E('T48a'), 'lt', name='Produzido pela FULGORTEC', role='videoclipe · trailer · imobiliário · publicidade')
 over(A('T48b', 'semanas') - 0.3, E('T48b') + 0.1, 'slam', y=320, size=220, items=[{'at': A('T48b', 'semanas') - 0.3, 'out': A('T48b', 'dias') - 0.1, 'light': 'ANTES', 'heavy': 'SEMANAS'}, {'at': A('T48b', 'dias') - 0.1, 'light': 'HOJE', 'heavy': 'DIAS'}])
-card(S('T49a1'), E('T49a2'), 'list', kicker='COMO COMEÇAR HOJE', title='3 PASSOS', src='',
-     items=[{'at': A('T49a1', 'comece'), 'text': 'Comece pelo que você já tem', 'tag': '01'}, {'at': A('T49a1', 'junte'), 'text': 'Três ferramentas, não trinta', 'tag': '02'}, {'at': A('T49a2', 'tres'), 'text': 'Publique com transparência', 'tag': '03', 'accent': True}])
+card(S('T49a1'), A('T49b', 'rotulo') - 0.15, 'list', kicker='COMO COMEÇAR HOJE', title='3 PASSOS', src='',
+     items=[{'at': A('T49a1', 'comece'), 'text': 'Comece pelo que você já tem', 'tag': '01'}, {'at': A('T49a2', 'junte'), 'text': 'Três ferramentas, não trinta', 'tag': '02'}, {'at': A('T49a2', 'tres', nth=2), 'text': 'Publique com transparência', 'tag': '03', 'accent': True}])
 over(A('T49b', 'rotulo'), E('T49b'), 'stamp', text='Rótulo de IA ≠ sem monetização', x=760, y=320, size=66, rot=-4, color='orange')
 over(A('T50', 'guia'), E('T50'), 'shade', side='bottom')
 over(A('T50', 'guia'), E('T50'), 'stack', x=110, y=800, size=60, items=[{'at': A('T50', 'guia'), 'text': 'GUIA PDF GRÁTIS', 'accent': True}, {'at': A('T50', 'descricao'), 'text': 'link na descrição'}])
