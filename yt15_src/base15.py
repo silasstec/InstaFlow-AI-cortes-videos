@@ -251,7 +251,20 @@ def vchunk(k):
     t0 = f0 / 30
     ov = f'{O}/ov/ov_{k}.webm'
     ins = ['-ss', f'{t0:.4f}', '-i', O + '/base_full.mp4', '-c:v', 'libvpx-vp9', '-i', ov]
-    fc = "[0:v][1:v]overlay=0:0:eof_action=pass:format=auto,format=yuv420p[v]"
+    pats = json.load(open(B + '/patches.json')) if os.path.exists(B + '/patches.json') else []
+    pats = [p for p in pats if p['f1'] >= f0 and p['f0'] < f1]
+    if not pats:
+        fc = "[0:v][1:v]overlay=0:0:eof_action=pass:format=auto,format=yuv420p[v]"
+    else:
+        win = '+'.join(f"between(t,{(p['f0'] - f0) / 30:.4f},{(p['f1'] + 0.5 - f0) / 30:.4f})" for p in pats)
+        fc = f"[0:v][1:v]overlay=0:0:eof_action=pass:format=auto:enable='not({win})'[o0]"
+        last = '[o0]'
+        for i, p in enumerate(pats):
+            ins += ['-c:v', 'libvpx-vp9', '-itsoffset', f"{(p['f0'] - f0) / 30:.4f}", '-i', O + '/ov/' + p['file']]
+            a, b = (p['f0'] - f0) / 30, (p['f1'] + 0.5 - f0) / 30
+            fc += f";{last}[{i + 2}:v]overlay=0:0:eof_action=pass:format=auto:enable='between(t,{a:.4f},{b:.4f})'[o{i + 1}]"
+            last = f'[o{i + 1}]'
+        fc += f";{last}format=yuv420p[v]"
     run(['ffmpeg', '-v', 'error', '-y'] + ins + ['-filter_complex', fc, '-map', '[v]', '-frames:v', str(f1 - f0), '-c:v', 'libx264', '-preset', 'medium', '-crf', '17', '-pix_fmt', 'yuv420p', '-r', '30', '-an', f'{O}/vchunk_{k:02d}.mp4'])
     print('chunk', k, 'ok')
 

@@ -120,8 +120,8 @@ card(S('T12c'), E('T12c'), 'quote', kicker='JOSH D\'AMARO · CEO DA DISNEY', tex
 
 # ---------------- 02 FILME 100% IA + OSCAR ----------------
 chapter('02', 'O filme 100% IA que quer o Oscar', 'T13a')
-over(A('T13a', 'chama'), E('T13a'), 'shade', side='left')
-over(A('T13a', 'chama'), E('T13a'), 'stack', x=110, y=360, size=58, items=[{'at': A('T13a', 'gods'), 'text': 'GODS DON\'T GIVE GIFTS', 'accent': True}, {'at': A('T13a', 'youtuber'), 'text': 'criado por um youtuber'}, {'at': A('T13a', 'fable'), 'text': 'produzido pela Fable'}])
+over(A('T13a', 'chama'), E('T13a'), 'shade', side='bottom')
+over(A('T13a', 'chama'), E('T13a'), 'stack', x=110, y=640, size=50, items=[{'at': A('T13a', 'gods'), 'text': 'GODS DON\'T GIVE GIFTS', 'accent': True}, {'at': A('T13a', 'youtuber'), 'text': 'criado por um youtuber'}, {'at': A('T13a', 'fable'), 'text': 'produzido pela Fable'}])
 broll(S('T13b'), A('T13b', 'transumanismo') - 0.1, 'b1')
 broll(A('T13b', 'transumanismo') - 0.1, E('T13b'), 'b5')
 card(A('T14', 'adiaram') - 0.6, E('T14'), 'timeline', kicker='GODS DON\'T GIVE GIFTS · ESTREIA NOS EUA', src='FONTE: NETINFLUENCER (7 OUT) · VANGUARDIA (8 OUT 2026)',
@@ -169,8 +169,8 @@ card(A('T32', 'estudio') - 0.3, E('T32'), 'timeline', kicker='O DIA (COLUNA CANA
      steps=[{'at': A('T32', 'estudio') - 0.2, 'label': 'NOTIFICAÇÃO', 'sub': 'estúdio de Hollywood', 'red': True}, {'at': A('T32', 'sumiu'), 'label': 'APAGADA', 'sub': 'no dia seguinte', 'red': True}, {'at': A('T32', 'pronunciou'), 'label': 'SILÊNCIO', 'sub': 'Globo não comentou'}])
 card(A('T331', 'microdramas') - 0.3, E('T331'), 'stat', kicker='GLOBO · DATA CENTER WORLD BRASIL · 6 OUT', big='1T 2027', line='microdramas verticais "nativos em IA"', hit=A('T331', 'primeiro'), src='FONTE: TV POP · 8 OUT 2026')
 over(A('T332', 'direitos') - 0.2, E('T332') + 0.1, 'slam', y=600, size=220, items=[{'at': A('T332', 'direitos') - 0.2, 'light': 'O ERRO FOI DE', 'heavy': 'DIREITOS'}])
-over(A('T34a', 'marco'), E('T34a'), 'shade', side='left')
-over(A('T34a', 'marco'), E('T34a'), 'stack', x=110, y=380, size=56, title={'at': A('T34a', 'marco'), 'text': 'MARCO DA IA · PL 2338'}, items=[{'at': A('T34a', 'votado'), 'text': 'Votação na Câmara: fim de 2026'}, {'at': A('T34a', 'direitos'), 'text': 'Trava: direitos autorais', 'accent': True}])
+over(A('T34a', 'marco'), E('T34a'), 'shade', side='bottom')
+over(A('T34a', 'marco'), E('T34a'), 'stack', x=110, y=600, size=48, title={'at': A('T34a', 'marco'), 'text': 'MARCO DA IA · PL 2338'}, items=[{'at': A('T34a', 'votado'), 'text': 'Votação na Câmara: fim de 2026'}, {'at': A('T34a', 'direitos'), 'text': 'Trava: direitos autorais', 'accent': True}])
 card(A('T34b', 'europa') - 0.2, E('T34b'), 'stat', kicker='UNIÃO EUROPEIA · AI ACT · ARTIGO 50', big='2 AGO 2026', line='rótulo visível + marca legível por máquina', sub='em vídeo e áudio gerados que pareçam reais', hit=A('T34b', 'agosto'), src='FONTE: COMISSÃO EUROPEIA · 2 AGO 2026')
 card(S('T34c'), E('T34c'), 'stat', kicker='AI ACT · MULTA MÁXIMA', big='€ 15 MI', line='ou 3% do faturamento global', hit=A('T34c', 'quinze'), src='FONTE: COMISSÃO EUROPEIA')
 
@@ -206,8 +206,8 @@ card(A('T44', 'jovens') - 0.2, E('T44'), 'bars', kicker='DISPOSTOS A ASSISTIR, P
      bars=[{'at': A('T44', 'jovens'), 'label': '18–34 anos', 'value': 35}, {'at': A('T44', 'resistentes'), 'label': '55+ anos', 'value': 42}])
 card(A('T45', 'maos') - 0.3, E('T45'), 'list', kicker='ONDE A IA AINDA FALHA', title='CUIDADO COM', src='',
      items=[{'at': A('T45', 'maos'), 'text': 'Mãos', 'tag': '01'}, {'at': A('T45', 'fisica'), 'text': 'Física', 'tag': '02'}, {'at': A('T45', 'continuidade'), 'text': 'Continuidade entre planos', 'tag': '03'}, {'at': A('T45', 'texto'), 'text': 'Texto dentro da imagem', 'tag': '04'}], size=64)
-over(A('T46', 'direcao') - 0.2, E('T46'), 'shade', side='left')
-over(A('T46', 'direcao') - 0.2, E('T46'), 'stack', x=110, y=380, size=64, items=[{'at': A('T46', 'direcao'), 'text': 'Direção.'}, {'at': A('T46', 'revisao'), 'text': 'Revisão.'}, {'at': A('T46', 'saber'), 'text': 'Saber o que não pedir.', 'accent': True}])
+over(A('T46', 'direcao') - 0.2, E('T46'), 'shade', side='bottom')
+over(A('T46', 'direcao') - 0.2, E('T46'), 'stack', x=110, y=640, size=54, items=[{'at': A('T46', 'direcao'), 'text': 'Direção.'}, {'at': A('T46', 'revisao'), 'text': 'Revisão.'}, {'at': A('T46', 'saber'), 'text': 'Saber o que não pedir.', 'accent': True}])
 
 # ---------------- 07 PARA VOCÊ ----------------
 chapter('07', 'O que muda para você', 'T47')
