@@ -31,6 +31,8 @@ for w, t in words:
     if w in ('.5,', '.1', '.1.', '.5') and out:
         out[-1][0] += w
         continue
+    if out and out[-1][0] in ('IA.', 'IA,') and w[:1].islower():
+        out[-1][0] = 'IA' if out[-1][0] == 'IA.' else 'IA,'
     if w == '...':
         continue
     out.append([w, t])
