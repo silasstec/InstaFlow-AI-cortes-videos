@@ -203,7 +203,7 @@ def audio():
         voice[i:i + L] += v[:L]
     tv = load('/home/user/tut/tutorial_final.mp4')
     i = int(round(E['tut']['a'] * SR)); L = min(len(tv), int((E['tut']['b'] - E['tut']['a']) * SR))
-    voice[i:i + L] += tv[:L]
+    voice[i:i + L] += tv[:L] * 10 ** (-2.8 / 20)  # tutorial master is ~3 dB hotter than the presenter takes
     voice = voice[:n]
     sfx = np.zeros((n + SR * 4, 2))
     cache = {}
