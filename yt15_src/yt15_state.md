@@ -61,3 +61,13 @@
 - Projeto: https://invideo.io/@fulgortec/silastec-cast-ia-no-cinema-15-min · timeline T1 (seq-1.1), 30 fps, agente "silas-claude", revisão 42.
 - V1 A-roll 84 clipes por plano (T## · câmera X, vinheta, tutorial+PiP, tela final); V2 B-roll 24 clipes nomeados por fonte; V3 grafismos alpha (ov_0..7 + patches p1..p3); A1 voz, A2 trilha ducked, A3 SFX.
 - QA: 12 capturas (3s..940s) iguais ao render final; check_timeline sem findings.
+
+## v2 (22 out tarde) — reclamação do Silas: rosto genérico/boca ruim; invideo pior
+- Triagem rosto: drives Wan nariz -15%, olhos -11% vs fotos; boca quase parada (d004 aberta loud 0.003 < quiet 0.005).
+- Soul 2.0 (2dd2eb50) keyframes: rosto pesado, barba preta densa, ignora composição -> FALHOU (igual análise de 29 set).
+- MiniMax H3 (2K, 2 cr/s): start_image NÃO combina com refs/áudio; usar image_references=[keyframe, foto] + audio_references. Piloto 9c81cd83: boca 10x mais aberta (0.022 vs 0.002), loud 0.040/quiet 0.001, r=0.47 lag 0; áudio preservado (corr 0.80) + 0.8 s de cauda. Identidade segue o keyframe.
+- Refs: fotos estúdio jun 2026 (e199ef78, 4b9172fc, a300d5ce, fff173af, 5f78009f; óculos redondos, barba cheia) ≠ selfie out (óculos retangulares, barba rala). NBP com essas refs manteve o rosto do keyframe (012e1524, a39566c3, 434592c2, c3d4aaca).
+- invideo: export bate com render (SSIM .97), mas alpha parcial esmagado (calibração: a .43->.04, .62->.22, .81->.53 sobre preto; sobre cor ainda pior), igual em ProRes 4444/VP9/PNG. Bug reportado. Solução: picture com grafismos já compostos por plano; áudio/trilha/cortes editáveis.
+- Cortes invideo 1 frame adiantados (at_f arredondado) -> usar frames exatos do base15.
+- Intro nova Intro15 (6 s, Remotion, motion blur) sobre M15 "Strong Future" a partir de 24.4 s; preview 4f8e8e89. Trilhas: M9 Finally, M2 Upbeat Tech, M23 High Tech, M7 Uplifting.
+- Antes/depois boca: 7b8c206f. Créditos ~1.130.
