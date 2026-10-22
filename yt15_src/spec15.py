@@ -1,15 +1,19 @@
 """yt15 edit spec -> data15.ts (Remotion) + edl15.json (sandbox base assembly).
-All times are anchored to word onsets of the narration (timeline.json from words.py)."""
+All times are anchored to word onsets of the narration (timeline.json from words.py).
+Sandbox: python3 spec15.py timeline.json data15.ts edl15.json cams.json  (also writes anchors.json)
+Local:   python3 spec15.py anchors.json data15.ts edl15.json cams.json"""
 import json, re, sys, unicodedata
 
-TL = json.load(open(sys.argv[1]))
+SRC = json.load(open(sys.argv[1]))
 OUT_TS = sys.argv[2]
 OUT_EDL = sys.argv[3]
 CAMS = json.load(open(sys.argv[4]))['cams']
+LOCAL = 'anch' in SRC
+TL = SRC if not LOCAL else {'total': SRC['total'], 'tl': SRC['tl']}
 segs = {s['id']: s for s in TL['tl'] if isinstance(s.get('n'), int)}
-byn = {s['n']: s for s in TL['tl'] if isinstance(s.get('n'), int)}
 special = {s['n']: s for s in TL['tl'] if not isinstance(s.get('n'), int)}
-
+ANCH = SRC.get('anch', {})
+REC = {}
 
 def norm(w):
     w = unicodedata.normalize('NFD', w.lower())
@@ -23,14 +27,22 @@ def A(sid, word=None, off=0.0, nth=1):
         return round(s['a'] + off, 3)
     if word == '$end':
         return round(s['b'] + off, 3)
+    key = f'{sid}|{word}|{nth}'
+    if LOCAL:
+        if key not in ANCH:
+            print(f'WARN anchor missing locally: {key}', file=sys.stderr)
+            return round(s['a'] + off, 3)
+        return round(ANCH[key] + off, 3)
     k = norm(word)
     c = 0
     for w in s['words']:
         if norm(w[0]).startswith(k):
             c += 1
             if c == nth:
+                REC[key] = w[1]
                 return round(w[1] + off, 3)
     print(f'WARN anchor not found: {sid} {word}', file=sys.stderr)
+    REC[key] = s['a']
     return round(s['a'] + off, 3)
 
 
@@ -247,3 +259,6 @@ json.dump({'total': TL['total'], 'pres': pres, 'broll': sorted(BR, key=lambda x:
 tot = TL['total'] - (tu['b'] - tu['a']) - (en['b'] - en['a'])
 cov = sum(e['t1'] - e['t0'] for e in EV if e['k'] == 'card') + sum(b['t1'] - b['t0'] for b in BR)
 print(f"events {len(EV)} broll {len(BR)} cover {cov:.1f}s of {tot:.1f}s = {100 * cov / tot:.0f}%", file=sys.stderr)
+
+if not LOCAL:
+    json.dump({'total': TL['total'], 'tl': [{'id': x.get('id'), 'n': x['n'], 'a': round(x['a'], 3), 'b': round(x['b'], 3)} for x in TL['tl']], 'anch': REC}, open('anchors.json', 'w'), ensure_ascii=False, separators=(',', ':'))
