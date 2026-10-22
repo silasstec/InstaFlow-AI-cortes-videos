@@ -23,7 +23,7 @@ for s in TL['tl']:
 out = []
 for w, t in words:
     if w in ('.A.', '.A.,', '.A.?', '.A') and out and out[-1][0] == 'I':
-        out[-1][0] = 'IA' + w[3:] if len(w) > 3 else 'IA'
+        out[-1][0] = {'.A.': 'IA.', '.A.,': 'IA,', '.A.?': 'IA?', '.A': 'IA'}[w]
         continue
     if w.startswith('-') and out:
         out[-1][0] += w
