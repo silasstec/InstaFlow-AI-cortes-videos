@@ -42,3 +42,22 @@
 - Prompt Aurora com "hands below frame" (mãos devem estar na mesa).
 - Seedance 2.5 t2v 1080p para B-roll genérico (falhas repetidas; Kling 3.0 pro resolveu).
 - Supabase transfer para ficheiros > 50 MB (400).
+
+## Progresso 22 out (tarde)
+- timeline.json pronto (937.43 s). spec15.py local usa anchors.json (copiado do sandbox); gera data15.ts + edl15.json. YT15Overlay registado; render VP9 alpha em 8 chunks (out/yt15/ov_N.webm) em background.
+- ls_all: medianas r0 A .13 B .26 C .27 D .12. Redo Wan (2 variantes, prompt + articulação) segs 0,4,7,23,29,30,34,41,70,73,80 (index = seg*10+v):
+  0:54f0d8f4 1:d1cd47c3 40:92302601 41:01bfe005 70:9d1865d2 71:74c25eb4 230:abbf0d0b 231:01748710 290:c8736d3d 291:5ab67770 300:c9066082 301:67dc4284
+  340:a985e2dc 341:7e004339 410:6b80f3e2 411:23f703d9 700:16f32dc1 701:6d4de929 730:ca4b8ccd 731:728105d1 800:f8da4f51 801:f2a53597
+- Tutorial audio == narr_master (lag 0). PiP: v{n} em tut.a + pip_segs[n].ss.
+- Picks lipsync (drv/pick.json): 0:r0(.20) 4:r41(.31) 7:r70(.70) 23:r230(.28) 29:r290(.16) 30:r301(.12) 34:r341(.62) 41:r411(.25) 70:r701(.22) 73:r730(.11) 80:r801(.18). idle end clip: drv/idle.mp4 (kling 5410f105).
+- Sandbox: base15.py (segs/special/music/cat/audio/v/mux), srt15.py; out em ~/yt15/out. Overlays chegam via relay yt15_ov/ov_N.webm.
+- Guia PDF: /root/yt15/guide/FULGORTEC-Guia-IA-no-Cinema.pdf (5 pág), relay yt15_src/. Metadata: /root/yt15/youtube_metadata.md (falta link do guia).
+- Thumbs: sandbox ~/yt15/thumb/thumb15_A.jpg, thumb15_B.jpg.
+- 07:40 fact-check agent: 22 defeitos (1 P0 Affleck). Corrigido: 17 segmentos re-TTS (fix/fN.wav → seg/sNNN.mp3; originais em seg_v1/), timeline v2 949.784 s (words_fix.py), spec com textos de ecrã corrigidos, anchors v2 local. Drives novos drv/xN.mp4; redo2 (2 variantes) para 0,15,29,60: idx n*10+v jobs 8f4bb57c 6e7a6711 521ccb38 f21cd8e5 fa2c6a20 f5e84bc7 cb5f3af0 6d38f1ff.
+- Guia v2 PDF: media 80827f10 (url d2ol7oe51mr4n9.../80827f10-...pdf). Overlay render v2 em curso (N=28494).
+- 10:25 ENTREGUE: final media 2f218946 (410 MB, 949.74 s, -13.9 LUFS, TP -1.0); thumbs af89b962 (A) b8832a2b (B); srt c2adec33 (.txt); guia 80827f10. Stock Mixkit (6 planos). Patches de overlay p1-p3 (stacks fora do rosto). Pendente opcional: trechos reais (precisa ficheiros do utilizador).
+
+## invideo (timeline editável) — concluído
+- Projeto: https://invideo.io/@fulgortec/silastec-cast-ia-no-cinema-15-min · timeline T1 (seq-1.1), 30 fps, agente "silas-claude", revisão 42.
+- V1 A-roll 84 clipes por plano (T## · câmera X, vinheta, tutorial+PiP, tela final); V2 B-roll 24 clipes nomeados por fonte; V3 grafismos alpha (ov_0..7 + patches p1..p3); A1 voz, A2 trilha ducked, A3 SFX.
+- QA: 12 capturas (3s..940s) iguais ao render final; check_timeline sem findings.
